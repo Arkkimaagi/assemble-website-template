@@ -1,0 +1,10 @@
+{{! TODO: setup JS files that effect visuality or *must* be in the top}}
+		{{verbose "These javascript files change how the page looks or absolutely must be here to work at all." 2}}
+		{{#site.js_head}}
+		<script src="{{root assets}}{{href}}"></script>
+		{{/site.js_head}}
+
+		{{verbose "Page specific header js that must be here" 2}}
+		{{#custom_js_head}}
+		<script src="{{root assets}}{{href}}"></script>
+		{{/custom_js_head}}

@@ -1,0 +1,30 @@
+---
+layout: <%=path.layouts%>blank.hbs
+title: Hello World!
+navtest: a
+mynav:
+  className: pull-right
+  items:
+   - title: Component tests
+     href: build/_tests/components.html
+     badge:
+       className: test
+       value: 3
+   - title: test
+     href: build/examples/
+   - title: test2
+     href: build/examples/index.html
+   - title: test3
+     href: build/
+---
+
+{{#mynav}}
+{{#$ ..}}{{>nav}}{{/$}}
+{{/mynav}}
+
+<p>How is it going?</p>
+
+{{!replace title "Hello" "Whoa"}}
+
+{{!icon "copy" "Kopioi talteen"}}
+{{!icon "copy"}}

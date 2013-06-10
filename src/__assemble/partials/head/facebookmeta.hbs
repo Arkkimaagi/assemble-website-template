@@ -1,0 +1,53 @@
+{{!
+Facebook meta tags to use when page has not facebook app to attach to.
+
+Sadly these are not valid HTML5 as Facebook insist on using "property"
+-attribute instead of the standard "name" attribute. Oh well..
+
+Guide from: http://davidwalsh.name/facebook-meta-tags
+You can debug these by using: https://developers.facebook.com/tools/debug
+
+Different page types can be found from here: 
+https://developers.facebook.com/docs/opengraphprotocol/#types
+
+}}
+		{{verbose "facebook meta tags, for when user links this page to fb" 2}}
+{{#site.meta.facebook}}
+{{! Site spesific }}
+		<meta property="og:type" content="{{type}}"/>
+		<meta property="og:site_name" content="{{site_name}}"/>
+		<meta property="og:description" content="{{description}}">
+{{! Page spesific }}
+		<meta property="og:url" content="{{currentURL ..}}"/>
+		<meta property="og:title" content="{{../title}}"/>
+{{! Site/Page image }}
+		<meta property="og:image" content="{{image}}"/>
+		<link rel="image_src" href="{{image}}" />{{!
+If the page has an like-button, then this should come handy:
+		<meta property="fb:admins" content="USER_ID1,USER_ID2"/>
+If there are multiple pages, and you want them all to point to one fb-page, link this:
+		<meta property="fb:app_id" content="1234567"/>
+
+Location is useful if your pages is a business profile or about anything else with a real-world location.
+		<meta property="og:latitude" content="37.416343"/>
+		<meta property="og:longitude" content="-122.153013"/>
+		<meta property="og:street-address" content="1601 S California Ave"/>
+		<meta property="og:locality" content="Palo Alto"/>
+		<meta property="og:region" content="CA"/>
+		<meta property="og:postal-code" content="94304"/>
+		<meta property="og:country-name" content="USA"/>
+
+If we want to have contact details visible for facebook:
+}}
+{{#contact}}
+	{{#email}}
+		<meta property="og:email" content="{{email}}"/>
+	{{/email}}
+	{{#phone}}
+		<meta property="og:phone_number" content="{{phone}}"/>
+	{{/phone}}
+	{{#fax}}
+		<meta property="og:fax_number" content="{{fax}}"/>
+	{{/fax}}
+{{/contact}}
+{{/site.meta.facebook}}

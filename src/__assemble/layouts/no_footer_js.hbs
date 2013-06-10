@@ -1,0 +1,11 @@
+---
+layout: <%=path.layouts%>base_html_layout.hbs
+---
+{{!This layout is ment to be used when you want to write your own javascript after the _master_footer_js }}
+{{>_master_head}}
+
+		{{verbose "Page specific content"}}
+		{{>body}}
+
+{{!Common footer}}
+{{>_master_footer}}

@@ -1,0 +1,40 @@
+language: en
+title: Mikko's blog
+description: My thoughts and notes about things. ;)
+
+chromeframe: false #If true, site complains on ie6 users to use chrome frame.
+IE10_desktopmode: false #If true, will force IE10 to desktop mode for plugins (flash) support
+google_analytics: UA-2873159-1 #This is the google analytics code, comment it out to disable
+
+dev:
+  verbose: true
+  helium: false
+
+meta:
+  description: '<%= site.description %>'
+  author: '<%= pkg.author %>'
+  ios:
+    title: '<%= site.title %>' #Notice: 12 characters maximum!
+  ie:
+    tile_color: '#ffffff'
+    tile_image: '<%= url.ico %>win8tile.png'
+    application_name: '<%= site.title %>'
+    tooltip: '<%= site.description %>'
+  facebook:
+    type: 'website'
+    site_name: '<%= site.title %>'
+    description: '<%= site.description %>'
+    url: '<%= url.homepage %>'
+    image: '<%= url.ico %>facebook.png'
+    # contact:
+    #   email: "customerservice@company.com"
+    #   phone: "+35880012345"
+    #   fax: "+35880012346"
+
+rss: true
+
+nav:
+  - title: Blog
+    href: blog/
+  - title: About
+    href: about/

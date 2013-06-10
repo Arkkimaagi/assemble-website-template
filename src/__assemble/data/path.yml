@@ -1,0 +1,13 @@
+src: src/
+assemble: <%= path.src %>__assemble/
+layouts: <%= path.assemble %>layouts/
+data: <%= path.assemble %>data/
+
+script: _script/
+style: _style/
+css: <%= path.style %>css/
+ico: <%= path.style %>ico/
+font: <%= path.style %>font/
+img: <%= path.style %>img/
+
+#Site spesific

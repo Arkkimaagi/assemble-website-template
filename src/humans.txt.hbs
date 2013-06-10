@@ -1,0 +1,39 @@
+---
+layout: <%=path.layouts%>blank.hbs
+---
+/* humanstxt.org */
+# The humans responsible & technology
+
+/* TEAM */{{#humans.people}}
+  {{titles}}: {{name}}
+  {{#site}}Site: {{this}}
+  {{/site}}{{#twitter}}Twitter: {{this}}
+  {{/twitter}}{{#from}}From: {{this}}
+{{/from}}{{/humans.people}}{{#if humans.thanks}}
+
+/* THANKS */{{/if}}{{#humans.thanks}}
+  {{names}}{{#url}}({{this}}){{/url}}{{/humans.thanks}}
+
+/* SITE */
+  Version: {{pkg.version}}
+  Standards: HTML5, CSS3, LESS
+  Components: 
+    jQuery
+    d3
+    DataTables
+    DhtmlxScheduler
+    HTML5shim
+    Bootstrap
+    Font Awesome
+  Software:
+    Sublime Text 2
+    Photoshop
+  Automation:{{!#keys pkg.devDependencies}}
+    {{key}} {{val}}{{!/keys}}
+
+    ___         __   __   _                             _
+   /   |  _____/ /__/ /__(_)___ ___  ____ _____ _____ _(_)
+  / /| | / ___/ //_/ //_/ / __ `__ \/ __ `/ __ `/ __ `/ /
+ / ___ |/ /  / ,< / ,< / / / / / / / /_/ / /_/ / /_/ / /
+/_/  |_/_/  /_/|_/_/|_/_/_/ /_/ /_/\__,_/\__,_/\__, /_/
+                                              /____/

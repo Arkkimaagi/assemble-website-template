@@ -1,0 +1,48 @@
+/////////////////////////////////////////////////////////////////////////////////////
+//HANDLESS.LESS
+
+/////////////////////////////////////////////////////////////////////////////////////
+// border-box = background below the border (default)
+// padding-box = background not covered by the border
+// content-box = background applied within the padding
+.background-clip (@clip: padding-box){
+	-webkit-background-clip: @clip;
+	-moz-background-clip: @clip;
+	background-clip: @clip;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+//Helpers 
+
+//Helps to create rounded elements where background image is clipped
+.border-radius (clip, @radius: @handless-radius){
+	.border-radius(@radius);
+	.background-clip(padding-box);
+}
+
+.clearfix() {
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+		// Fixes Opera/contenteditable bug:
+		// http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+		line-height: 0;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+//The old, but cleaner way to do clearfix
+.clearfix_overflow() {
+	overflow:hidden;
+}
+
+// Text overflow Mixin for one line text
+.text-overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

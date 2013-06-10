@@ -1,0 +1,88 @@
+/////////////////////////////////////////////////////////////////////////////////////
+// Bootstrap includes (with replaces)
+
+// Core variables and mixins
+@import "lib/bootstrap_v2.3.2/variables.less"; // Modify this for custom colors, font-sizes, etc
+//@import "lib/bootstrap_v2.3.2/_variables-custom.less";
+@import "lib/bootstrap_v2.3.2/mixins.less";
+
+// CSS Reset
+@import "lib/bootstrap_v2.3.2/reset.less";
+// @import "lib/bootstrap_v2.3.2/_reset-custom.less";
+
+// Grid system and page structure
+@import "lib/bootstrap_v2.3.2/scaffolding.less";
+@import "lib/bootstrap_v2.3.2/grid.less";
+@import "lib/bootstrap_v2.3.2/layouts.less";
+
+// Base CSS
+@import "lib/bootstrap_v2.3.2/type.less";
+@import "lib/bootstrap_v2.3.2/code.less";
+@import "lib/bootstrap_v2.3.2/forms.less";
+@import "lib/bootstrap_v2.3.2/tables.less";
+
+// Components: common
+// @import "lib/bootstrap_v2.3.2/sprites.less";
+@import "lib/font-awesome/font-awesome.less";
+// @import "lib/bootstrap_v2.3.2/dropdowns.less";
+// @import "lib/bootstrap_v2.3.2/wells.less";
+// @import "lib/bootstrap_v2.3.2/component-animations.less";
+// @import "lib/bootstrap_v2.3.2/close.less";
+
+// // Components: Buttons & Alerts
+// @import "lib/bootstrap_v2.3.2/buttons.less";
+// @import "lib/bootstrap_v2.3.2/button-groups.less";
+// @import "lib/bootstrap_v2.3.2/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Nav
+@import "lib/bootstrap_v2.3.2/navs.less";
+@import "lib/bootstrap_v2.3.2/navbar.less";
+// @import "lib/bootstrap_v2.3.2/breadcrumbs.less";
+// // @import "lib/bootstrap_v2.3.2/_breadcrumbs-custom.less";
+// @import "lib/bootstrap_v2.3.2/pagination.less";
+// @import "lib/bootstrap_v2.3.2/pager.less";
+
+// // Components: Popovers
+// @import "lib/bootstrap_v2.3.2/modals.less";
+// @import "lib/bootstrap_v2.3.2/tooltip.less";
+// @import "lib/bootstrap_v2.3.2/popovers.less";
+
+// // Components: Misc
+// @import "lib/bootstrap_v2.3.2/thumbnails.less";
+// @import "lib/bootstrap_v2.3.2/media.less";
+// @import "lib/bootstrap_v2.3.2/labels-badges.less";
+// @import "lib/bootstrap_v2.3.2/progress-bars.less";
+// @import "lib/bootstrap_v2.3.2/accordion.less";
+// @import "lib/bootstrap_v2.3.2/carousel.less";
+// @import "lib/bootstrap_v2.3.2/hero-unit.less";
+
+// // Utility classes
+@import "lib/bootstrap_v2.3.2/utilities.less"; // Has to be last to override when necessary
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Other libraries
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Responsive
+
+//Padding to make the top part of page be visible after the nav
+//This has to be before the responsive stuff as it is reset there.
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+// Responsive stuff
+@import "lib/bootstrap_v2.3.2/responsive.less";
+
+////////////////////////////////////////////////////////////////////////////
+// Fixes
+
+//Prevent jumpy scrollbars
+html {
+	overflow-y: scroll;
+}
+
+////////////////////////////////////////////////////////////////////////////
+// Here be dragons!

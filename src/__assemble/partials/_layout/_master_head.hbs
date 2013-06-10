@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{{! The base html has been created by reading html5bp guides }}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="{{site.language}}"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="{{site.language}}"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="{{site.language}}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{site.language}}"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">{{!This should be declared first.}}
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1{{#if site.IE10_desktopmode}},requiresActiveX=true{{/if}}">{{!Best rendering for ie, or chrome frame}}
+		<title>{{title}}</title>
+		<meta name="description" content="{{site.meta.description}}">
+		<meta name="author" content="{{site.meta.author}}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{{>rss}}
+		{{#page_exists 'sitemap.xml' .}}{{>sitemapmeta}}{{/page_exists}}
+		{{#page.noindex}}
+		<meta name="robots" content="noindex">
+		{{/page.noindex}}
+		<link rel="search" title="" type="application/opensearchdescription+xml" href="">
+
+		{{verbose "Fav and touch icons" 2}}
+		<link rel="shortcut icon" href="{{root assets}}favicon.ico">
+		{{>iosmeta}}
+
+		{{>facebookmeta}}
+
+		{{verbose "Global main.css lives here.." 2}}
+		<link href="{{root assets}}{{path.css}}main.css" rel="stylesheet">
+{{! 
+	TODO: iemobile 7.5 css fix could be here...
+	TODO: site search could be here
+		meta: https://github.com/h5bp/html5-boilerplate/blob/v4.2.0/doc/extend.md#firefox-and-ie-search-plugins
+		engine: http://lunrjs.com/
+	TODO: Add appcache for faster pageloads: https://github.com/jamesgpearce/confess
+}}
+		{{verbose "This is the page specific CSS area" 2}}
+		{{#page.custom_css}}
+		<link href="{{root assets}}{{href}}" rel="stylesheet">
+		{{/page.custom_css}}
+
+		{{>iemeta}}
+
+		{{! ie support for html5 elements }}
+		{{>html5shim}}
+
+		{{>devtools}}
+
+		{{>headjs}}
+	</head>
+	<body>
+{{>ie6whine}}

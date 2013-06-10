@@ -1,0 +1,16 @@
+			<ul class="breadcrumb">
+				{{#breadcrumbs}}
+				{{! For the beginning part of the breadcrumbs }}
+				{{^active}}
+				<li>
+					<a href="{{href}}">{{title}}</a> <span class="divider">&gt;</span>
+				</li>
+				{{/active}}
+				{{! For the current part of the breadcrumbs }}
+				{{#active}}
+				<li class="active">
+					{{title}}
+				</li>
+				{{/active}}
+				{{/breadcrumbs}}
+			</ul>

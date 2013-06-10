@@ -1,0 +1,19 @@
+site:
+  #className: pull-right
+  items:
+    - title: Blog
+      href: blog/
+      # badge:
+      #   className: test
+      #   value: 3
+    - title: About
+      href: about/
+
+site-right:
+  className: pull-right
+  items:
+    - title: Search
+      href: search/
+      # badge:
+      #   className: test
+      #   value: 3

@@ -1,0 +1,17 @@
+{{verbose "All non-visual javascripts should be here to keep the pageload as fast as possible" 2}}
+
+	{{#$ bundles.global}}
+		{{>bundle}}
+	{{/$}}
+
+	{{#$ custom_bundles}}
+		{{>bundle}}
+	{{/$}}
+
+	{{! Our page specific footer JS comes here }}
+	{{!
+		TODO: Check the root path of this code
+	}}
+	{{#page.custom_js_footer}}
+		<script src="{{myroot}}{{href}}"></script>
+	{{/page.custom_js_footer}}

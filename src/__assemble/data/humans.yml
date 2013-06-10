@@ -1,0 +1,17 @@
+people:
+- titles: 'UI Designer, Frontend Architect'
+  name: Mikko Tapionlinna
+  site: http://mikko.tapionlinna.fi
+  twitter: "@tapionlinna"
+  from: Helsinki, Finland
+
+#- titles: Backend developer
+#  name: John Smith
+#  from: Nowhere
+
+thanks:
+#- names: John Smith
+#  url: http://www.example.com
+#
+#- names: Jane Smith, Clark Kent
+#  url: http://www.example.com
