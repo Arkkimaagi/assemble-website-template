@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 		assemble:{
 			_watch:[
 				'src/__assemble/data/**/*.{json,yml}',
-				'src/__assemble/helpers/myHelpers.js',
+				'src/__assemble/helpers/*.js',
 				'!src/_{script,style}/**/*',
 				'src/**/*.hbs'
 			],
@@ -53,11 +53,11 @@ module.exports = function(grunt) {
 				layout:'src/__assemble/layouts/default.hbs',
 				partials:['src/__assemble/partials/**/*.hbs'],
 				//TODO: The helpers structure is in a flux, so lets solve this mess when assemble is fixed
-				//helpers:'src/__assemble/helpers/myHelpers.js',
-				registerFunctions: function(engine) {
-					var helperFunctions = require('./src/__assemble/helpers/helpers.js');
-					engine.engine.registerFunctions(helperFunctions);
-				},
+				helpers:'src/__assemble/helpers/help.js',
+				//registerFunctions: function(engine) {
+				//	var helperFunctions = require('./src/__assemble/helpers/helpers.js');
+				//	engine.engine.registerFunctions(helperFunctions);
+				//},
 				assets:'build/',
 				removeHbsWhitespace: true,
 
