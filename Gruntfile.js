@@ -321,6 +321,12 @@ module.exports = function(grunt) {
 				spawn: true
 			},
 			
+			htaccess:{
+				files: '<%= copy._watch.htaccess %>',
+				tasks: ['copy:htaccess'],
+				spawn: true
+			},
+			
 			copy_script:{
 				files: '<%= copy._watch.script %>',
 				tasks: ['copy:script'],
