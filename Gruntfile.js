@@ -167,6 +167,7 @@ module.exports = function(grunt) {
 		copy: {
 			_watch:{
 				style:['src/_style/font/*','src/favicon.ico'],
+				htaccess:['src/.htaccess'],
 				script:['src/_script/*.js'],
 				script_site:['src/_script/site/**']
 			},
@@ -175,6 +176,16 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						src: ['_style/font/*','favicon.ico'],
+						cwd: 'src/',
+						dest: 'build/'
+					}
+				]
+			},
+			htaccess: { //Copy site settings
+				files: [
+					{
+						expand: true,
+						src: ['.htaccess'],
 						cwd: 'src/',
 						dest: 'build/'
 					}
