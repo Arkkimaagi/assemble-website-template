@@ -28,8 +28,8 @@ layout: <%=path.layouts%>blank.hbs
   Software:
     Sublime Text 2
     Photoshop
-  Automation:{{!#keys pkg.devDependencies}}
-    {{key}} {{val}}{{!/keys}}
+  Automation:{{#keys pkg.dependencies}}
+    {{key}} {{val}}{{/keys}}
 
     ___         __   __   _                             _
    /   |  _____/ /__/ /__(_)___ ___  ____ _____ _____ _(_)
