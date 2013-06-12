@@ -245,6 +245,19 @@ module.exports = function(grunt) {
 			}
 		},
 
+		// GZIP or ZIP the site
+		compress: {
+			gzip: {
+				options: {
+					mode: 'gzip'
+				},
+				expand: true,
+				cwd: 'build/',
+				src: ['**/*.{html,js,css,txt,xml,eot,svg,ttf,woff,otf}'],
+				dest: 'build/'
+			}
+		},
+
 
 		//Clean the structure, so that everything can be generated from scratch
 		clean: {
@@ -257,6 +270,13 @@ module.exports = function(grunt) {
 			},
 			imagemin:{
 				src: ["<%= imagemin._clean %>"]
+			},
+			gzip:{
+				files:[
+					{
+						src: ['build/**/*.gz']
+					}
+				]
 			}
 		},
 
