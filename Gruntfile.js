@@ -51,6 +51,8 @@ module.exports = function(grunt) {
 				ext:'',
 				data:['src/__assemble/data/**/*.{json,yml}'],
 				layout:'src/__assemble/layouts/default.hbs',
+				//layout:'default.hbs',
+				//layoutdir:'src/__assemble/layouts/',
 				partials:['src/__assemble/partials/**/*.hbs'],
 				//TODO: The helpers structure is in a flux, so lets solve this mess when assemble is fixed
 				helpers:'src/__assemble/helpers/help.js',
