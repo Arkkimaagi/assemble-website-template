@@ -20,12 +20,18 @@ meta:
     tile_image: '<%= url.ico %>win8tile.png'
     application_name: '<%= site.title %>'
     tooltip: '<%= site.description %>'
+  twitter:
+    # #twitter_site: "@sitetwitter"
+    # twitter_creator: "@tapionlinna"
+    # title: '<%= site.title %>'
+    # description: '<%= site.description %>'
+    # image: '<%= url.ico %>twitter.png'  # TODO: add the actual image for twitter
   facebook:
     type: 'website'
     site_name: '<%= site.title %>'
     description: '<%= site.description %>'
     url: '<%= url.homepage %>'
-    image: '<%= url.ico %>facebook.png'
+    image: '<%= url.ico %>facebook.png' # TODO: add the actual image for facebook
     # contact:
     #   email: "customerservice@company.com"
     #   phone: "+35880012345"

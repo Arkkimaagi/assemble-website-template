@@ -11,7 +11,9 @@ Different page types can be found from here:
 https://developers.facebook.com/docs/opengraphprotocol/#types
 
 }}
+{{#if site.meta.facebook}}
 		{{verbose "facebook meta tags, for when user links this page to fb" 2}}
+{{/if}}
 {{#site.meta.facebook}}
 {{! Site spesific }}
 		<meta property="og:type" content="{{type}}"/>

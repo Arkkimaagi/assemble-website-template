@@ -13,6 +13,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		{{>rss}}
 		{{#page_exists 'sitemap.xml' .}}{{>sitemapmeta}}{{/page_exists}}
+
+
+		{{verbose " - - Metadata area - - " 2}}
 		{{#page.noindex}}
 		<meta name="robots" content="noindex">
 		{{/page.noindex}}
@@ -22,7 +25,14 @@
 		<link rel="shortcut icon" href="{{root assets}}favicon.ico">
 		{{>iosmeta}}
 
+		{{>twittermeta}}
+
 		{{>facebookmeta}}
+
+		{{>iemeta}}
+
+
+		{{verbose " - - CSS area - - " 2}}
 
 		{{verbose "Global main.css lives here.." 2}}
 		<link href="{{root assets}}{{path.css}}main.css" rel="stylesheet">
@@ -33,12 +43,14 @@
 		engine: http://lunrjs.com/
 	TODO: Add appcache for faster pageloads: https://github.com/jamesgpearce/confess
 }}
+
 		{{verbose "This is the page specific CSS area" 2}}
 		{{#page.custom_css}}
 		<link href="{{root assets}}{{href}}" rel="stylesheet">
 		{{/page.custom_css}}
 
-		{{>iemeta}}
+
+		{{verbose " - - JS area - - " 2}}
 
 		{{! ie support for html5 elements }}
 		{{>html5shim}}

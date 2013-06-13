@@ -1,0 +1,31 @@
+{{!
+Twitter meta tags are used when a twitter user links to the current page.
+
+There are multiple options for these:
+	Summary Card: Default card, including a title, description, thumbnail, and Twitter account attribution.
+	Large Image Summary Card: Similar to a Summary Card, but offeres the ability to prominently feature an image.
+	Photo Card: A Tweet sized photo card.
+	Gallery Card: A Tweet card geared toward highlighting a collection of photos.
+	App Card: A Tweet card for providing a profile of an application.
+	Player Card: A Tweet sized video/audio/media player card.
+	Product Card: A Tweet card to better represent product content.
+
+More info here: https://dev.twitter.com/docs/cards
+
+TODO: Add support for the other types too. This is just the default type.
+}}
+{{#if site.meta.twitter}}
+		{{verbose "Twitter meta tags, for when user links this page in Twitter" 2}}
+{{/if}}
+{{#site.meta.twitter}}
+		<meta name="twitter:card" content="summary">
+{{#if twitter_site}}
+		<meta name="twitter:site" content="{{twitter_site}}">
+{{/if}}
+{{#if twitter_creator}}
+		<meta name="twitter:creator" content="{{twitter_creator}}">
+{{/if}}
+		<meta name="twitter:title" content="{{title}}">
+		<meta name="twitter:description" content="{{description}}">
+		<meta name="twitter:image" content="{{image}}">
+{{/site.meta.twitter}}
