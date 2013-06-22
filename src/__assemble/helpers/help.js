@@ -100,7 +100,7 @@
 			},
 
 			"keys": function(obj, options) {
-				console.log("keys",options);
+				//console.log("keys",options);
 				var key, result, value;
 				
 				result = '';

@@ -21,11 +21,11 @@ meta:
     application_name: '<%= site.title %>'
     tooltip: '<%= site.description %>'
   twitter:
-    # #twitter_site: "@sitetwitter"
-    # twitter_creator: "@tapionlinna"
-    # title: '<%= site.title %>'
-    # description: '<%= site.description %>'
-    # image: '<%= url.ico %>twitter.png'  # TODO: add the actual image for twitter
+    #twitter_site: "@sitetwitter"
+    twitter_creator: "@tapionlinna"
+    title: '<%= site.title %>'
+    description: '<%= site.description %>'
+    image: '<%= url.ico %>twitter.png'  # TODO: add the actual image for twitter
   facebook:
     type: 'website'
     site_name: '<%= site.title %>'

@@ -6,7 +6,7 @@
   "repository": "",
   "author": "Mikko Tapionlinna",
   "dependencies": {
-    "assemble": "~0.3.80",
+    "assemble": "~0.4.00",
     "grunt-contrib-clean": "~0.4.1",
     "grunt-contrib-compress": "~0.5.2",
     "grunt-contrib-concat": "~0.3.0",
