@@ -48,27 +48,21 @@ module.exports = function(grunt) {
 				'src/**/*.hbs'
 			],
 			options:{
-				ext:'',
+				assets:'build/',
 				data:['src/__assemble/data/**/*.{json,yml}'],
-				//layout:'src/__assemble/layouts/default.hbs',
+				ext:'',
+				helpers:'src/__assemble/helpers/help.js',
 				layout:'default.hbs',
 				layoutdir:'src/__assemble/layouts/',
 				partials:['src/__assemble/partials/**/*.hbs'],
-				//TODO: The helpers structure is in a flux, so lets solve this mess when assemble is fixed
-				helpers:'src/__assemble/helpers/help.js',
-				//registerFunctions: function(engine) {
-				//	var helperFunctions = require('./src/__assemble/helpers/helpers.js');
-				//	engine.engine.registerFunctions(helperFunctions);
-				//},
-				assets:'build/',
 				removeHbsWhitespace: true,
 
+				//Custom options
 				pkg: grunt.file.readJSON('package.json'),
 				bundles:'<%= concat %>',
 				bundles_open:false,
 				siteroot:'build/',
 				livereloadport:'<%= livereload.port %>',
-
 				dev:true
 			},
 			hbs:{
