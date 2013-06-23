@@ -101,37 +101,23 @@ module.exports = function(grunt) {
 		//Check syntax of JavaScript
 		jshint: {
 			_watch: {
-				script: '<%=jshint.script.files.src%>'
+				script: '<%=jshint.script.files.src%>',
+				hbshelpers: '<%=jshint.hbshelpers.files.src%>',
+				gruntfile: '<%=jshint.gruntfile.files.src%>'
 			},
 			options: {
-				/* JsHint settings, remember to put this to your editor too */
-				"bitwise":true,
-				"camelcase":false,
-				"curly":true,
-				"eqeqeq": true,
-				"forin":false,
-				"immed": false,
-				"latedef": true,
-				"newcap": true,
-				"noarg": true,
-				"noempty": false,
-				"nonew": true,
-				"plusplus":false,
-				"regexp": true,
-				"strict":false,
-				"trailing": true,
-				"undef": true,
-				"unused": false,
-				"white":false,
-				/**/
-				"es5":true,
-				"sub":true,
-				/**/
-				"browser": true,
-				"jquery": true
+				jshintrc: ".jshintrc"
+				//TODO: change "trailing":true in .jshintrc when sublimelinter has been updated so that it does not complain
+				//about empty rows with whitespace.
 			},
 			script: {
 				files: {src:['src/_script/*.js','src/_script/site/**/*.js']}
+			},
+			hbshelpers: {
+				files: {src:['src/__assemble/helpers/*.js']}
+			},
+			gruntfile: {
+				files: {src:['Gruntfile.js']}
 			}
 		},
 
@@ -301,9 +287,21 @@ module.exports = function(grunt) {
 				spawn: true
 			},
 			
-			jshint: {
+			jshint_script: {
 				files: '<%= jshint._watch.script %>',
 				tasks: ['jshint:script'],
+				spawn: true
+			},
+			
+			jshint_hbshelpers: {
+				files: '<%= jshint._watch.hbshelpers %>',
+				tasks: ['jshint:hbshelpers'],
+				spawn: true
+			},
+			
+			jshint_gruntfile: {
+				files: '<%= jshint._watch.gruntfile %>',
+				tasks: ['jshint:gruntfile'],
 				spawn: true
 			},
 			
@@ -433,7 +431,7 @@ module.exports = function(grunt) {
 	//grunt.renameTask('regarde', 'watch');
 
 	grunt.registerTask('validate', [
-		'jshint:script'
+		'jshint'
 	]);
 
 	grunt.registerTask('images', [
