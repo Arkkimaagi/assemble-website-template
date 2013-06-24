@@ -155,7 +155,7 @@ module.exports = function(grunt) {
 					sourceMap: '<%= uglify.global.dest %>.map'
 				},
 				src: '<%= concat.global.src %>',
-				dest: '<%= concat.global.dest.replace(".js",".min.js") %>',
+				dest: '<%= concat.global.dest.replace(".js",".min.js") %>'
 			}
 		},
 		
@@ -490,15 +490,22 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('images', [
-		'clean:imagemin', 'imagemin'
+		'clean:imagemin',
+		'imagemin'
 	]);
 
 	grunt.registerTask('bundle', [
-		/*'concat',*/ 'uglify', 'regex-replace'
+		//'concat',
+		'uglify',
+		'regex-replace'
 	]);
 
 	grunt.registerTask('build', [
-		'assemble', 'less', 'copy', 'bundle', 'images'
+		'assemble',
+		'less',
+		'copy',
+		'bundle',
+		'images'
 	]);
 
 	grunt.registerTask('live', [
@@ -508,7 +515,8 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('default', [
-		'validate', 'build'
+		'validate',
+		'build'
 	]);
 
 	grunt.registerTask('watch',[
@@ -517,7 +525,8 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('rebuild', [
-		'clean:build', 'default'
+		'clean:build',
+		'default'
 	]);
 
 };
