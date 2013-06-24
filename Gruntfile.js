@@ -53,7 +53,7 @@ module.exports = function(grunt) {
 				assets:'build/',
 				data:['src/__assemble/data/**/*.{json,yml}'],
 				ext:'',
-				helpers:'src/__assemble/helpers/help.js',
+				helpers:'src/__assemble/helpers/*.js',
 				layout:'default.hbs',
 				layoutdir:'src/__assemble/layouts/',
 				partials:['src/__assemble/partials/**/*.hbs'],

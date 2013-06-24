@@ -1,16 +1,7 @@
 /*jshint node:true */
 (function() {
 	module.exports.register = function(Handlebars, options) {
-
-		var help = {
-
-			"debugThis": function(target) {
-				//console.log("debugThis");
-				if(!target){
-					target = this;
-				}
-				console.log(target);
-			},
+		var helpers = {
 
 			"replace": function(original_string,look_for,replace_with,flags) {
 				//console.log("replace");
@@ -25,7 +16,7 @@
 				return original_string.replace(look_for,replace_with);
 			},
 
-			"root": function(path,options) {
+			"root": function(path) {
 				//console.log("root");
 				if(path !== "" && path !== "."){
 					return path+"/";
@@ -50,21 +41,6 @@
 					return options.fn(this);
 				} else {
 					return options.inverse(this);
-				}
-			},
-
-			'nav_is_active': function(that,options) {
-				//console.log('nav_is_active');
-				var siteroot = new RegExp("^build/");
-				try{
-					if(this.href.replace(/index.html$/,'') === that.page.dest.replace(/index.html$/,'').replace(siteroot,'')){
-						return "active ";
-					}else{
-						return "";
-					}
-				}catch(e){
-					console.error('nav_is_active','-helper did not work!');
-					throw(e);
 				}
 			},
 
@@ -115,33 +91,6 @@
 				return result;
 			},
 
-			"verbose": function(text,indent,options) {
-				//console.log("verbose");
-				var tabs = "";
-				if(typeof indent === "number"){
-					tabs = new Array(indent+1).join("\t");
-				}
-				if(this.site.dev.verbose){
-					return new Handlebars.SafeString(tabs+"<!-- "+text+" -->");
-				}
-				return "";
-			},
-
-			"relatives": function(from,to,options) {
-				//console.log("relatives",from,to,options);
-				from = from.replace(/^build\//,'');
-				to = to.replace(/^build\//,'');
-				var path = require('path');
-				var fromDirname, relativePath, toBasename, toDirname;
-				
-				fromDirname = path.normalize(path.dirname(from));
-				toDirname = path.normalize(path.dirname(to));
-				toBasename = path.basename(to);
-				relativePath = path.relative(fromDirname, toDirname);
-				
-				return path.join(relativePath, toBasename).replace(/\\/g, "/");
-			},
-
 			"icon": function(symbol,title,options) {
 				//console.log("icon");
 				var ariaLabel = "";
@@ -164,11 +113,9 @@
 
 		};
 
-		for(var index in help){
-			Handlebars.registerHelper(index, help[index]);
+		for(var index in helpers){
+			Handlebars.registerHelper(index, helpers[index]);
 		}
-
 		return this;
 	};
-
 }).call(this);
