@@ -1,15 +1,17 @@
 {{#dev}}
-<!-- DO NOT PUT THIS PART IN PRODUCTION!!!!! -->
 {{#site.dev.helium}}
+<!-- DO NOT PUT THIS PART IN PRODUCTION!!!!! -->
 <!-- CSS Helium - This script tests whole site for unused CSS selectors. It's heavy and slow, but works. -->
 <script src="{{root assets}}script/lib/helium/helium.js"></script>
 <script type="text/javascript">
 	window.addEventListener('load', function(){helium.init();}, false);
 </script>
 {{/site.dev.helium}}
+{{#is_live}}
+<!-- DO NOT PUT THIS PART IN PRODUCTION!!!!! -->
 <!-- Livereload helper -->
 <script>
 	document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':{{default livereloadport 35729}}/livereload.js?snipver=1"></' + 'script>');
 </script>
-<!-- DO NOT PUT THIS PART IN PRODUCTION!!!!! -->
+{{/is_live}}
 {{/dev}}

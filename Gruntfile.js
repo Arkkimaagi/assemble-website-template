@@ -39,6 +39,7 @@ module.exports = function(grunt) {
 
 		// Is this really needed?
 		pkg: grunt.file.readJSON('package.json'),
+		is_live: false,
 
 		//Assemble files from .hbs -contentfiles, based on data, layouts and partials
 		assemble:{
@@ -64,7 +65,8 @@ module.exports = function(grunt) {
 				bundles_open:false,
 				siteroot:'build/',
 				livereloadport:'<%= livereload.port %>',
-				dev:true
+				dev:true,
+				is_live:'<%= is_live %>'
 			},
 			hbs:{
 				files:[
@@ -324,32 +326,32 @@ module.exports = function(grunt) {
 		regarde: {
 			assemble: {
 				files: '<%= assemble._watch %>',
-				tasks: ['assemble'],
+				tasks: ['set_live','assemble'],
 				spawn: true
 				//Assemble should not spawn when it supports regarde
 			},
 			
 			less: {
 				files: '<%= less._watch %>',
-				tasks: ['less'],
+				tasks: ['set_live','less'],
 				spawn: true
 			},
 			
 			jshint_script: {
 				files: '<%= jshint._watch.script %>',
-				tasks: ['jshint:script'],
+				tasks: ['set_live','jshint:script'],
 				spawn: true
 			},
 			
 			jshint_hbshelpers: {
 				files: '<%= jshint._watch.hbshelpers %>',
-				tasks: ['jshint:hbshelpers'],
+				tasks: ['set_live','jshint:hbshelpers'],
 				spawn: true
 			},
 			
 			jshint_gruntfile: {
 				files: '<%= jshint._watch.gruntfile %>',
-				tasks: ['jshint:gruntfile'],
+				tasks: ['set_live','jshint:gruntfile'],
 				spawn: true
 			},
 			
@@ -357,31 +359,31 @@ module.exports = function(grunt) {
 			
 			copy_style:{
 				files: '<%= copy._watch.style %>',
-				tasks: ['copy:style'],
+				tasks: ['set_live','copy:style'],
 				spawn: true
 			},
 			
 			htaccess:{
 				files: '<%= copy._watch.htaccess %>',
-				tasks: ['copy:htaccess'],
+				tasks: ['set_live','copy:htaccess'],
 				spawn: true
 			},
 			
 			copy_script:{
 				files: '<%= copy._watch.script %>',
-				tasks: ['copy:script'],
+				tasks: ['set_live','copy:script'],
 				spawn: true
 			},
 			
 			copy_script_site:{
 				files: '<%= copy._watch.script_site %>',
-				tasks: ['copy:script_site'],
+				tasks: ['set_live','copy:script_site'],
 				spawn: true
 			},
 			
 			imagemin: {
 				files: '<%= imagemin._watch %>',
-				tasks: ['imagemin'],
+				tasks: ['set_live','imagemin'],
 				spawn: true
 			},
 			
@@ -389,7 +391,7 @@ module.exports = function(grunt) {
 				//Limiting this to few levels is more efficient than running it on whole path.
 				//Seriously, it takes loads of cpu time with /**/* setting.
 				files: ['build/*','build/*/*','build/*/*/*'],
-				tasks: ['livereload']
+				tasks: ['set_live','livereload']
 				//Live should not spawn (to work at all)
 			}
 		},
@@ -416,7 +418,7 @@ module.exports = function(grunt) {
 		////A quick tool for testing the file matching patterns.
 		////Useful only for Gruntfile.js debugging
 		//filematch: {
-		//	less: '<%= watch.hogan.files %>'
+		//	less: '<%= regarde.assemble.files %>'
 		//}
 
 		////Generate a styleguide based on LESS/CSS code
@@ -471,11 +473,13 @@ module.exports = function(grunt) {
 		};
 	});
 	_.each(conf.uglify,function(val,key,content){
-		conf.regarde['uglify-'+key] = {
-			files:val.src,
-			tasks: ['uglify:'+key],
-			spawn:true
-		};
+		if(key!=='options'){
+			conf.regarde['uglify-'+key] = {
+				files:val.src,
+				tasks: ['uglify:'+key],
+				spawn:true
+			};
+		}
 	});
 
 //--------------------------------------------------------------------------------------------------
@@ -484,6 +488,10 @@ module.exports = function(grunt) {
 	grunt.initConfig(conf);
 
 	//grunt.renameTask('regarde', 'watch');
+
+	grunt.registerTask('set_live', 'Sets a global flag telling that we\'re in live mode.', function() {
+		grunt.config.set('is_live', true);
+	});
 
 	grunt.registerTask('validate', [
 		'jshint'
@@ -520,6 +528,7 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('watch',[
+		'set_live',
 		'default',
 		'live'
 	]);
