@@ -30,6 +30,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-livereload");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-regarde");
+	grunt.loadNpmTasks("grunt-regex-replace");
 
 
 //--------------------------------------------------------------------------------------------------
@@ -59,7 +60,7 @@ module.exports = function(grunt) {
 
 				//Custom options
 				pkg: grunt.file.readJSON('package.json'),
-				bundles:'<%= concat %>',
+				bundles:'<%= uglify %>',
 				bundles_open:false,
 				siteroot:'build/',
 				livereloadport:'<%= livereload.port %>',
@@ -121,25 +122,72 @@ module.exports = function(grunt) {
 			}
 		},
 
-		//TODO: Maybe this should be done with uglify-js when the bugs are ironed out from it.
+		//This is not run by default anymore. Instead uglify minimizes the files and generates sourcemaps for them.
+		//concat can still be called for debugging purposes, altho I do not see a real need for it.
 		concat: {
 			global: {
 				src: [
 					'src/_script/lib/jquery/jquery-1.9.1.js',
-					'src/_script/lib/bootstrap/bootstrap-transition.js',
-					'src/_script/lib/bootstrap/bootstrap-alert.js',
-					'src/_script/lib/bootstrap/bootstrap-modal.js',
-					'src/_script/lib/bootstrap/bootstrap-dropdown.js',
-					'src/_script/lib/bootstrap/bootstrap-scrollspy.js',
-					'src/_script/lib/bootstrap/bootstrap-tab.js',
-					'src/_script/lib/bootstrap/bootstrap-tooltip.js',
-					'src/_script/lib/bootstrap/bootstrap-popover.js',
-					'src/_script/lib/bootstrap/bootstrap-button.js',
-					'src/_script/lib/bootstrap/bootstrap-collapse.js',
-					'src/_script/lib/bootstrap/bootstrap-carousel.js',
-					'src/_script/lib/bootstrap/bootstrap-typeahead.js'
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-transition.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-alert.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-modal.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-dropdown.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-scrollspy.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-tab.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-tooltip.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-popover.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-button.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-collapse.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-carousel.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-typeahead.js'
 				],
 				dest: 'build/_script/_bundles/global.js'
+			}
+		},
+
+		//Minimize javascript with sourcemap support
+		uglify: {
+			options: {
+				mangle: false
+			},
+			global: {
+				options: {
+					sourceMap: '<%= uglify.global.dest %>.map'
+				},
+				src: '<%= concat.global.src %>',
+				dest: '<%= concat.global.dest.replace(".js",".min.js") %>',
+			}
+		},
+		
+		//Fix the sourcemap support code (uglify generates wrong paths.)
+		'regex-replace': {
+			uglify_fix_map: {
+				src: ['<%= uglify.global.options.sourceMap %>'],
+				actions: [
+					{
+						name: 'target path',
+						search: '"build\/_script\/_bundles\/',
+						replace: '"',
+						flags: 'g'
+					},
+					{
+						name: 'source path',
+						search: '"src\/_script\/',
+						replace: '"../',
+						flags: 'g'
+					}
+				]
+			},
+			uglify_fix_min: {
+				src: ['<%= uglify.global.dest %>'],
+				actions: [
+					{
+						name: 'map path',
+						search: 'sourceMappingURL=build\/_script\/_bundles\/',
+						replace: 'sourceMappingURL=',
+						flags: 'g'
+					}
+				]
 			}
 		},
 
@@ -363,8 +411,8 @@ module.exports = function(grunt) {
 					}
 				}
 			}
-		},
-
+		}
+		//,
 		////A quick tool for testing the file matching patterns.
 		////Useful only for Gruntfile.js debugging
 		//filematch: {
@@ -422,6 +470,13 @@ module.exports = function(grunt) {
 			spawn:true
 		};
 	});
+	_.each(conf.uglify,function(val,key,content){
+		conf.regarde["uglify-"+key] = {
+			files:val.src,
+			tasks: ['uglify:'+key],
+			spawn:true
+		};
+	});
 
 //--------------------------------------------------------------------------------------------------
 
@@ -438,8 +493,12 @@ module.exports = function(grunt) {
 		'clean:imagemin', 'imagemin'
 	]);
 
+	grunt.registerTask('bundle', [
+		/*'concat',*/ 'uglify', 'regex-replace'
+	]);
+
 	grunt.registerTask('build', [
-		'assemble', 'less', 'copy', 'concat', 'images'
+		'assemble', 'less', 'copy', 'bundle', 'images'
 	]);
 
 	grunt.registerTask('live', [
