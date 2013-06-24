@@ -7,9 +7,9 @@ layout: blank.hbs
 {{#doesntcontain dest '/_static/'}}
   <url>
     <loc>{{../../../pkg.homepage}}{{replace ../../dest '(^build/|index.html)' '' 'g'}}</loc>
-    <lastmod>{{now "%Y-%m-%dT%H:%M:%S.%z"}}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
+    <lastmod>{{smartLastMod ..}}</lastmod>
+    <changefreq>{{smartChangeFreq ..}}</changefreq>
+    <priority>{{default ../data/priority "0.5"}}</priority>
   </url>
 {{/doesntcontain}}
 {{/contains}}
