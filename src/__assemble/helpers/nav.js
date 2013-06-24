@@ -61,8 +61,6 @@
 		for(var index in helpers){
 			Handlebars.registerHelper(index, helpers[index]);
 		}
-
 		return this;
 	};
-
 }).call(this);
