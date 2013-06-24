@@ -1,7 +1,6 @@
 /*jshint node:true */
 (function() {
 	module.exports.register = function(Handlebars, options) {
-
 		var helpers = {};
 
 		/**
