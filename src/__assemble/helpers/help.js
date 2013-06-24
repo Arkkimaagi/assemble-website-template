@@ -109,7 +109,7 @@
 				}
 				//console.log("no");
 				return options.inverse(this);
-			},
+			}
 
 		};
 
