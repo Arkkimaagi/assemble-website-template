@@ -19,18 +19,18 @@ module.exports = function(grunt) {
 	// Load all grunt tasks
 	//require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 	grunt.loadNpmTasks('assemble');
-	grunt.loadNpmTasks("grunt-contrib-clean");
-	grunt.loadNpmTasks("grunt-contrib-compress");
-	grunt.loadNpmTasks("grunt-contrib-concat");
-	grunt.loadNpmTasks("grunt-contrib-connect");
-	grunt.loadNpmTasks("grunt-contrib-copy");
-	grunt.loadNpmTasks("grunt-contrib-imagemin");
-	grunt.loadNpmTasks("grunt-contrib-jshint");
-	grunt.loadNpmTasks("grunt-contrib-less");
-	grunt.loadNpmTasks("grunt-contrib-livereload");
-	grunt.loadNpmTasks("grunt-contrib-uglify");
-	grunt.loadNpmTasks("grunt-regarde");
-	grunt.loadNpmTasks("grunt-regex-replace");
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-compress');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-livereload');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-regarde');
+	grunt.loadNpmTasks('grunt-regex-replace');
 
 
 //--------------------------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 			css: {
 				options: {
 					yuicompress: false,
-					dumpLineNumbers: false //"all"
+					dumpLineNumbers: false //'all'
 				},
 				files: [
 					{
@@ -107,8 +107,8 @@ module.exports = function(grunt) {
 				gruntfile: '<%=jshint.gruntfile.files.src%>'
 			},
 			options: {
-				jshintrc: ".jshintrc"
-				//TODO: change "trailing":true in .jshintrc when sublimelinter has been updated so that it does not complain
+				jshintrc: '.jshintrc'
+				//TODO: change 'trailing':true in .jshintrc when sublimelinter has been updated so that it does not complain
 				//about empty rows with whitespace.
 			},
 			script: {
@@ -308,7 +308,7 @@ module.exports = function(grunt) {
 				]
 			},
 			imagemin:{
-				src: ["<%= imagemin._clean %>"]
+				src: ['<%= imagemin._clean %>']
 			},
 			gzip:{
 				files:[
@@ -464,14 +464,14 @@ module.exports = function(grunt) {
 
 	//Automatically add bundles to watch list
 	_.each(conf.concat,function(val,key,content){
-		conf.regarde["concat-"+key] = {
+		conf.regarde['concat-'+key] = {
 			files:val.src,
 			tasks: ['concat:'+key],
 			spawn:true
 		};
 	});
 	_.each(conf.uglify,function(val,key,content){
-		conf.regarde["uglify-"+key] = {
+		conf.regarde['uglify-'+key] = {
 			files:val.src,
 			tasks: ['uglify:'+key],
 			spawn:true
