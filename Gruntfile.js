@@ -58,6 +58,7 @@ module.exports = function(grunt) {
 				layoutdir:'src/__assemble/layouts/',
 				partials:['src/__assemble/partials/**/*.hbs'],
 				removeHbsWhitespace: true,
+				collections:['pagetype'],
 
 				//Custom options
 				pkg: grunt.file.readJSON('package.json'),

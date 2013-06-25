@@ -1,13 +1,22 @@
 ---
 title: Blog archive
 ---
-{{h2 "Posts marked with tags"}}
-
-{{#each tags}}
+{{h2 "All posts"}}
+{{#pagetype.blogpost}}
 <dl>
+	{{#withSort pages "data.date"}}{{! TODO: This sorting is not yet working? }}
+	<dt><a href="{{relative_strip ../../page.dest dest }}">{{data.title}}</a></dt>
+	<dd>{{data.description}}</dd>
+	{{/withSort}}
+</dl>
+{{/pagetype.blogpost}}
+
+{{h2 "Posts marked with tags"}}
+<dl>
+{{#each tags}}
 	<dt>{{tag}}</dt>
 	{{#each pages}}
 	<dd><a href="{{relative_strip ../../page.dest dest }}">{{data.title}}</a></dd>
 	{{/each}}
-</dl>
 {{/each}}
+</dl>
