@@ -12,40 +12,18 @@
 			var formatD = Handlebars.helpers.formatDate;
 			var now = new Date();
 			
-			if(context.data.lastmod){
-				var lastmod = context.data.lastmod;
-				var diff = now - lastmod;
-				
-				var day = 24*60*60*1000;
-				var timescale = {
-					twoDays: 2*day,
-					week: 7*day,
-					sixMonths: 182*day,
-					year: 365*day
-				};
-				
-				if(diff<0){
-					
-					//If lastmod happens in future, use default
-					console.log(context.dest,"lastmod happens in future? Using current day.");
-					return formatD( now, "%Y-%m-%d" );
-					
-				}else if(diff < timescale.twoDays){
-					
-					//If lastmod has happened in 2 days, lets set hourly timestamp
-					return formatD( lastmod, "%Y-%m-%dT%H:%M:%S.%z" );
-					
-				}else if(diff < timescale.week){
-					
-					//If lastmod has happened in 7 days, lets set daily timestamp
-					return formatD( lastmod, "%Y-%m-%d" );
-					
-				}
-				
-			}else{
+			var fs = require('fs');
+			var mtime = new Date(fs.statSync(context.src).mtime);
+			var lastmod = context.data.lastmod||mtime;
+			
+			var diff = now - lastmod;
+			
+			//If lastmod happens in future, use current day
+			if(diff<0){
+				console.log(context.dest,"lastmod happens in future? Using current day.");
 				return formatD( now, "%Y-%m-%d" );
 			}
-			
+			return formatD( lastmod, "%Y-%m-%dT%H:%M:%S.%z" );
 		};
 
 		/**
@@ -56,11 +34,15 @@
 		helpers.smartChangeFreq = function(context) {
 			var formatD = Handlebars.helpers.formatDate;
 			var now = new Date();
+			
+			var fs = require('fs');
+			var mtime = new Date(fs.statSync(context.src).mtime);
+			var lastmod = context.data.lastmod||mtime;
+			
 			if(context.data.changefreq){
 				return context.data.changefreq;
 			}
-			else if(context.data.lastmod){
-				var lastmod = context.data.lastmod;
+			else if(lastmod){
 				var diff = now - lastmod;
 				
 				var day = 24*60*60*1000;

@@ -2,25 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>http://mikko.tapionlinna.fi/_tests/components.html</loc>
-    <lastmod>2013-06-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2013-06-22T12:49:27.+0003</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://mikko.tapionlinna.fi/_tests/empty.html</loc>
-    <lastmod>2013-06-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2013-06-22T14:22:39.+0003</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://mikko.tapionlinna.fi/_tests/no_footer_js.html</loc>
-    <lastmod>2013-06-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2013-06-22T12:49:26.+0003</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://mikko.tapionlinna.fi/about/</loc>
-    <lastmod>2013-06-25</lastmod>
+    <lastmod>2013-06-09T10:54:46.+0003</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -32,8 +32,8 @@
   </url>
   <url>
     <loc>http://mikko.tapionlinna.fi/blog/</loc>
-    <lastmod>2013-06-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2013-06-26T01:52:12.+0003</lastmod>
+    <changefreq>hourly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
@@ -44,8 +44,8 @@
   </url>
   <url>
     <loc>http://mikko.tapionlinna.fi/</loc>
-    <lastmod>2013-06-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2013-06-22T14:48:49.+0003</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
 </urlset>

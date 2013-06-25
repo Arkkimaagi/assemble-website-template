@@ -61,6 +61,7 @@ module.exports = function(grunt) {
 				collections:['pagetype'],
 
 				//Custom options
+				fs: require('fs'),
 				pkg: grunt.file.readJSON('package.json'),
 				bundles:'<%= uglify %>',
 				bundles_open:false,
