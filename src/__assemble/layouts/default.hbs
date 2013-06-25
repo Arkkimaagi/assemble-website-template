@@ -6,7 +6,9 @@ layout:base_html_layout.hbs
 
 		{{>navbar}}
 		<div class="container">
-			<h1>{{title}}</h1>
+			{{>breadcrumbs}}
+			{{h1 title}}
+			<p class="lead">{{description}}</p>
 			{{>body}}
 		</div>
 

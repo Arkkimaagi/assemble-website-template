@@ -1,9 +1,11 @@
+			{{#if_depth_gt site.breadcrumbs_start_at}}
 			<ul class="breadcrumb">
+				{{!This helper generates the data for breadcrumbs itself!}}
 				{{#breadcrumbs}}
 				{{! For the beginning part of the breadcrumbs }}
 				{{^active}}
 				<li>
-					<a href="{{href}}">{{title}}</a> <span class="divider">&gt;</span>
+					<a href="{{this.href}}">{{this.title}}</a> <span class="divider">&gt;</span>
 				</li>
 				{{/active}}
 				{{! For the current part of the breadcrumbs }}
@@ -14,3 +16,4 @@
 				{{/active}}
 				{{/breadcrumbs}}
 			</ul>
+			{{/if_depth_gt}}

@@ -1,4 +1,13 @@
 ---
 title: Blog archive
 ---
-<p>TODO: Blog archive</p>
+{{h2 "Posts marked with tags"}}
+
+{{#each tags}}
+<dl>
+	<dt>{{tag}}</dt>
+	{{#each pages}}
+	<dd><a href="{{relative_strip ../../page.dest dest }}">{{data.title}}</a></dd>
+	{{/each}}
+</dl>
+{{/each}}

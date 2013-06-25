@@ -58,6 +58,68 @@
 			return path.join(relativePath, toBasename).replace(/\\/g, "/");
 		};
 
+		/**
+		 * Create relative path from here to target path and strip index.html
+		 * @param  {String} from Page linking from
+		 * @param  {String} to   Page linked to
+		 * @return {String}      Relative path to destination without index.html in the end.
+		 */
+		helpers.relative_strip = function(from, to) {
+			return Handlebars.helpers.relative(from,to.replace(/\/index.html$/i,'/'));
+		};
+
+		/**
+		 * Render block, if current folder depth is high enough
+		 * @param  {Integer} level  Depth limit
+		 * @param  {Object} options Internal object
+		 * @return {Object}         Renders block if depth level is above limit
+		 */
+		helpers.if_depth_gt = function(level,options) {
+			if(this.dirname.split('/').length>level){
+				return options.fn(this);
+			} else {
+				return options.inverse(this);
+			}
+		};
+
+
+		/**
+		 * Creates breadcrumbs for current level
+		 * @param  {Object} options Internal object
+		 * @return {String}         Rendered breadcrumbs for current level
+		 */
+		helpers.breadcrumbs = function(options) {
+			var dirs = {};
+			for(var i in this.pages){
+				var iPage = this.pages[i];
+				var iDest = iPage.dest.replace(/\/index\.html$/i,"\/");
+				dirs[iDest] = iPage;
+			}
+			
+			var tDest = this.page.dest.replace(/\/index\.html$/i,"\/");
+			var tDestSplit = tDest.split("/");
+			var tDestSplitLength = tDestSplit.length;
+			
+			var result = "";
+			
+			for(i = 0; i<tDestSplitLength; i++){
+				var pathSegment = tDestSplit.slice(0,i).join('/')+"/";
+				if(dirs[pathSegment]){
+					var obj = {};
+					obj.title = dirs[pathSegment].data.title;
+					if(pathSegment === tDest){
+						obj.active = true;
+					} else {
+						obj.href = dirs[pathSegment].dest;
+						obj.href = Handlebars.helpers.relative(this.page.dest,obj.href);
+						obj.href = obj.href.replace(/\/index\.html$/i,"\/");
+					}
+					result += options.fn(obj);
+				}
+			}
+			return result;
+		};
+
 		for(var index in helpers){
 			Handlebars.registerHelper(index, helpers[index]);
 		}

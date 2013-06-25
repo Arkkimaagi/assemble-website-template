@@ -1,0 +1,132 @@
+---
+#layout: blogpost.hbs
+
+title: Test blogpost contents
+
+description:
+  A sample of the different site features has been collected here for quick test and review. Feel free to take a looksie and get inspired!
+
+date: 2013-06-25 16:40:00+3
+lastmod: 2013-06-25 18:13:00+3
+
+categories:
+- Examples
+- Layout tests
+
+tags:
+- Sample
+- Test
+
+groups:
+- Blogpost
+---
+
+{{h1 "Heading level 1"}}
+{{h2 "Heading level 2"}}
+{{h3 "Heading level 3"}}
+{{h4 "Heading level 4"}}
+{{h5 "Heading level 5"}}
+{{h6 "Heading level 6"}}
+
+<p class="lead">Leading paragraph text, uses {{code "{{description}}"}}-variable from frontmatter.</p>
+
+<p>This paragraph text is just your basic body copy. It's here to illustrate how the default {{code "<p>"}}-tag works. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque debitis tenetur perspiciatis consequatur laboriosam vitae quod quae iste voluptatum asperiores.</p>
+
+<p>Voluptas, animi, incidunt, quaerat, optio repellendus nostrum est officiis voluptatum adipisci sed perferendis laudantium minima quibusdam illo hic dolorem reiciendis numquam eaque. Rerum ullam recusandae neque veniam maxime accusantium quod eos fuga aspernatur distinctio. Qui, ipsa, sapiente, sint eum temporibus quidem rem placeat eveniet aperiam eius est neque optio nostrum cupiditate beatae id enim quas quisquam eos numquam unde dicta.</p>
+
+<blockquote>
+	<p>Far out in the uncharted backwaters of the unfashionable end of the Western Spiral arm of the Galaxy lies a small unregarded yellow sun.</p>
+	<small>Douglas Adams in <cite title="Source Title">The Hitchhiker's Guide to the Galaxy</cite></small>
+</blockquote>
+
+<blockquote class="pull-right">
+	<p>Far out in the uncharted backwaters of the unfashionable end of the Western Spiral arm of the Galaxy lies a small unregarded yellow sun.</p>
+	<small>Douglas Adams in <cite title="Source Title">The Hitchhiker's Guide to the Galaxy</cite></small>
+</blockquote>
+
+<p>Hey, this is the last paragraph, lets do something fun here. <small>This is meant to be treated as fine print.</small> Oh, and here we say something really <strong>important</strong> and <em>elegant</em> using <abbr title="attribute">attr</abbr> and <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>.</p>
+
+<p class="text-left">Left aligned text.</p>
+<p class="text-center">Center aligned text.</p>
+<p class="text-right">Right aligned text.</p>
+
+<p class="muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+<p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+<p class="text-error">Donec ullamcorper nulla non metus auctor fringilla.</p>
+<p class="text-info">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</p>
+<p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+<ul>
+	<li>Lorem ipsum dolor sit amet</li>
+	<li>Consectetur adipiscing elit</li>
+	<li>Integer molestie lorem at massa</li>
+	<li>Facilisis in pretium nisl aliquet</li>
+	<li>Nulla volutpat aliquam velit
+		<ul>
+			<li>Phasellus iaculis neque</li>
+			<li>Purus sodales ultricies</li>
+			<li>Vestibulum laoreet porttitor sem</li>
+			<li>Ac tristique libero volutpat at</li>
+		</ul>
+	</li>
+	<li>Faucibus porta lacus fringilla vel</li>
+	<li>Aenean sit amet erat nunc</li>
+	<li>Eget porttitor lorem</li>
+</ul>
+
+<ol>
+	<li>Lorem ipsum dolor sit amet</li>
+	<li>Consectetur adipiscing elit</li>
+	<li>Integer molestie lorem at massa</li>
+	<li>Facilisis in pretium nisl aliquet</li>
+	<li>Nulla volutpat aliquam velit
+		<ol>
+			<li>Phasellus iaculis neque</li>
+			<li>Purus sodales ultricies</li>
+			<li>Vestibulum laoreet porttitor sem</li>
+			<li>Ac tristique libero volutpat at</li>
+		</ol>
+	</li>
+	<li>Faucibus porta lacus fringilla vel</li>
+	<li>Aenean sit amet erat nunc</li>
+	<li>Eget porttitor lorem</li>
+</ol>
+
+
+<ul class="unstyled">
+	<li>Lorem ipsum dolor sit amet</li>
+	<li>Consectetur adipiscing elit</li>
+	<li>Integer molestie lorem at massa</li>
+	<li>Facilisis in pretium nisl aliquet</li>
+	<li>Nulla volutpat aliquam velit
+		<ul>
+			<li>Phasellus iaculis neque</li>
+			<li>Purus sodales ultricies</li>
+			<li>Vestibulum laoreet porttitor sem</li>
+			<li>Ac tristique libero volutpat at</li>
+		</ul>
+	</li>
+	<li>Faucibus porta lacus fringilla vel</li>
+	<li>Aenean sit amet erat nunc</li>
+	<li>Eget porttitor lorem</li>
+</ul>
+
+<dl>
+	<dt>Description lists</dt>
+	<dd>A description list is perfect for defining terms.</dd>
+	<dt>Euismod</dt>
+	<dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+	<dd>Donec id elit non mi porta gravida at eget metus.</dd>
+	<dt>Malesuada porta</dt>
+	<dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+</dl>
+
+<dl class="dl-horizontal">
+	<dt>Description lists</dt>
+	<dd>A description list is perfect for defining terms.</dd>
+	<dt>Euismod</dt>
+	<dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+	<dd>Donec id elit non mi porta gravida at eget metus.</dd>
+	<dt>Malesuada porta</dt>
+	<dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+</dl>

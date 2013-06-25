@@ -1,5 +1,5 @@
 language: en
-title: Mikko's blog
+title: Mikko Tapionlinna
 description: My thoughts and notes about things. ;)
 
 chromeframe: false #If true, site complains on ie6 users to use chrome frame.
@@ -44,3 +44,6 @@ nav:
     href: blog/
   - title: About
     href: about/
+
+#At what navigation level should breadcrumbs be visible? 0 = root, 1 = first...
+breadcrumbs_start_at: 2

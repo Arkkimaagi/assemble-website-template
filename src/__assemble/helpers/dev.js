@@ -17,9 +17,9 @@
 
 		helpers.debugThis = function(target) {
 			//console.log("debugThis");
-			if(!target){
-				target = this;
-			}
+			//if(!target){
+			//	target = this;
+			//}
 			console.log(target);
 		};
 
