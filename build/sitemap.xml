@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>http://mikko.tapionlinna.fi/blog/first-blog-post/</loc>
-    <lastmod>2013-06-25T19:37:00.+0003</lastmod>
+    <lastmod>2013-06-26T08:59:06.+0003</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -44,8 +44,14 @@
   </url>
   <url>
     <loc>http://mikko.tapionlinna.fi/</loc>
-    <lastmod>2013-06-22T14:48:49.+0003</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2013-06-26T14:15:43.+0003</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://mikko.tapionlinna.fi/sitemap/</loc>
+    <lastmod>2013-06-26T17:22:26.+0003</lastmod>
+    <changefreq>hourly</changefreq>
     <priority>0.5</priority>
   </url>
 </urlset>

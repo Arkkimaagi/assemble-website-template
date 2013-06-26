@@ -1,0 +1,8 @@
+	<li>{{this.href}} - <a href="{{this.href}}">{{this.title}}</a></li>
+	{{#if this.items}}
+	<ul>
+	{{#this.items}}
+		{{>sitemap-item}}
+	{{/this.items}}
+	</ul>
+	{{/if}}

@@ -3,19 +3,6 @@
 	module.exports.register = function(Handlebars, options) {
 		var helpers = {
 
-			"replace": function(original_string,look_for,replace_with,flags) {
-				//console.log("replace");
-				if(flags){
-					if(typeof flags === "string"){
-						look_for = new RegExp(look_for, flags);
-					}else{
-						look_for = new RegExp(look_for);
-					}
-					
-				}
-				return original_string.replace(look_for,replace_with);
-			},
-
 			"root": function(path) {
 				//console.log("root");
 				if(path !== "" && path !== "."){
