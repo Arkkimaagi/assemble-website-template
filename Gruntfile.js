@@ -65,7 +65,7 @@ module.exports = function(grunt) {
 				pkg: grunt.file.readJSON('package.json'),
 				bundles:'<%= uglify %>',
 				bundles_open:false,
-				siteroot:'build/',
+				urlroot:'build/index.html',
 				livereloadport:'<%= livereload.port %>',
 				dev:true,
 				is_live:'<%= is_live %>'

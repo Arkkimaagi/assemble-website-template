@@ -39,8 +39,8 @@
 
 			"currentURL": function( options ) {
 				//console.log("currentURL");
-				var siteroot = new RegExp("^"+options.siteroot);
-				return options.url.homepage+options.page.dest.replace(siteroot,"").replace(/index\.html$/,'');
+				var urlroot = new RegExp("^"+options.urlroot.replace(/\/index.html$/,'/'));
+				return options.url.homepage+options.page.dest.replace(urlroot,"").replace(/index\.html$/,'');
 			},
 
 			"$$": function( child, parent, options ) {

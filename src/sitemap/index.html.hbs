@@ -16,9 +16,9 @@ description: Navigation and site structure
 
 {{h2 "Site structure"}}
 <ul>
-{{#withSort pages "dest"}}
-{{#match this.dest ".html$" true}}
-	<li>{{replace this.dest "^build/(.*?)(index.html)?$" "$1" "i"}} - <a href="{{replace this.dest "^build(.*?)(index.html)?$" "$1" "i"}}">{{this.data.title}}</a></li>
+{{#withSort pages "url_stripped"}}
+{{#match this.url "\.html$" true}}
+	<li>{{this.url_stripped}} - <a href="{{relative ../../this.page.url this.url}}">{{this.data.title}}</a></li>
 {{/match}}
 {{/withSort}}
 </ul>
