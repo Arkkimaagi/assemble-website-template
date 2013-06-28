@@ -6,14 +6,14 @@ layout:base_html_layout.hbs
 
 		{{>navbar}}
 		<div class="container">
-			{{>breadcrumbs}}
-			{{h1 title}}
-			<p class="lead">{{description}}</p>
+			{{#unless layout_no_breadcrumbs}}{{>breadcrumbs}}{{/unless}}
+			{{#unless layout_no_title}}{{h1 title}}{{/unless}}
+			{{#unless layout_no_description}}<p class="lead">{{description}}</p>{{/unless}}
 			{{>body}}
 		</div>
 
 {{!Common footer js stuff}}
-{{>_master_footer_js}}
+{{#unless layout_no_footer_js}}{{>_master_footer_js}}{{/unless}}
 
 {{!Common footer}}
 {{>_master_footer}}
