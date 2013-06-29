@@ -1,4 +1,203 @@
 ---
 layout: blank.hbs
+
+# These tree are required
+title: <%= site.title %>
+description: <%= site.description %>
+link: <%= url.homepage %>
+
+rss_href: <%= url.rss %>
+creativecommons: http://creativecommons.org/licenses/by-nd/3.0/
+
+#rss_categories:
+#- title: Example
+#- title: News/Newspapers/Regional/United_States/Texas
+#  domain: ' domain="dmoz"'
+
+#The copyright element declares the human-readable copyright statement that applies to the feed (OPTIONAL).
+copyright: Copyright <%= pkg.author %>
+#Optional
+generator: Assemble.io <%= about.version %>
+#Optional
+image:
+  link: <%= url.homepage %>
+  title: <%= site.title %>
+  url: <%= url.homepage %>_style/ico/apple-touch-icon-114x114-precomposed.png
+  description: <%= site.description %>
+  width: 114
+  height: 114
+#Optional
+language: <%= site.language %>
+#Optional
+lastBuildDate: <%= about.buildtime %>
+#Optional
+#managingEditor: john.smith@email.com
+#Optional
+#pubDate: <%= about.buildtime %> #This should be the time the latest blogpost was published
+#Optional
+#rating: '(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l by "webmaster@example.com" on "2006.01.29T10:09-0800" r (n 0 s 0 v 0 l 0))'
+#Optional
+#skipDays: #Notice, this is GMT, altho probably not supported by most readers
+#- day: Monday
+#- day: Thursday
+#Optional
+#skipHours: #Notice, this is in GMT
+#- hour: 0
+#- hour: 1
+#- hour: 2
+#- hour: 22
+#- hour: 23
+#Optional
+#ttl: 60 # Spec says it's the max minutes before new update, aggregators disagree how to use this, some use it as min, some ignore it totally. It's a mess basicly.
+#Optional
+#webMaster: john.smith@email.com
+
+
+
+
+#  http://www.rssboard.org/rss-profile
+# 
+# Only <description> field should have html elements in it. Other fields should have their html encoded like so:
+# 
+# encoding:
+# & = &#x26;
+# < = &#x3C;
+# > = &#x3E;
+# 
+# Date and time values should be of format:
+# Thu, 04 Oct 2007 23:59:45 +0003
+# 
+# In all link and url elements, the first non-whitespace characters in a URL MUST begin with a scheme defined by the
+# IANA Registry of URI Schemes such as "ftp://", "http://", "https://", "mailto:" or "news://". These elements MUST 
+# NOT contain relative URLs.
 ---
-TODO:Create RSS feed
+<rss version="2.0"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	{{#if creativecommons}}xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule"{{/if}}{{!
+	xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/" }}>{{!required}}
+	<channel>{{!required}}
+		<atom:link href="{{rss_href}}" rel="self" type="application/rss+xml" />
+		{{#if creativecommons}}
+		<creativeCommons:license>{{creativecommons}}</creativeCommons:license>
+		{{/if}}
+{{!}}
+		<title>{{title}}</title>{{!required}}
+		<description>{{description}}</description>{{!required}}
+		<link>{{link}}</link>{{!required}}
+{{!}}
+		{{#rss_categories}}
+		<category{{this.domain}}>{{this.title}}</category>{{!optional, multiple}}
+		{{/rss_categories}}{{!
+		http://www.rssboard.org/rss-profile#element-channel-cloud
+		<cloud domain="server.example.com" path="/rpc" port="80" protocol="xml-rpc" registerProcedure="cloud.notify" />
+		}}{{!optional, singleton}}
+		{{#if copyright}}
+		<copyright>{{copyright}}</copyright>{{!optional, singleton}}
+		{{/if}}
+		<docs>http://www.rssboard.org/rss-specification</docs>{{!optional, singleton}}
+		<generator>{{generator}}</generator>{{!optional, singleton}}
+		{{#image}}
+		<image>{{!optional, singleton}}
+			<link>{{this.link}}</link>
+			<title>{{this.title}}</title>
+			<url>{{this.url}}</url>
+			<description>{{this.description}}</description>
+			<height>{{this.height}}</height>
+			<width>{{this.width}}</width>
+		</image>
+		{{/image}}
+		<language>{{language}}</language>{{!optional, singleton}}
+		<lastBuildDate>{{lastBuildDate}}</lastBuildDate>{{!optional, singleton}}
+		{{#managingEditor}}
+		<managingEditor>{{managingEditor}}</managingEditor>{{!optional, singleton}}
+		{{/managingEditor}}
+		{{#pubDate}}
+		<pubDate>{{pubDate}}</pubDate>{{!optional, singleton}}
+		{{/pubDate}}
+		{{#rating}}
+		<rating>{{rating}}</rating>{{!optional, singleton}}
+		{{/rating}}
+		{{#if skipDays}}
+		<skipDays>{{!optional, singleton}}
+			{{#skipDays}}
+			<day>this.day</day>
+			{{/skipDays}}
+		</skipDays>
+		{{/if}}
+		{{#if skipHours}}
+		<skipHours>{{!optional, singleton}}
+			{{#skipHours}}
+			<hour>this.hour</day>
+			{{/skipHours}}
+		</skipHours>
+		{{/if}}{{! 
+		The RSS specification actively discourages publishers from using the textInput element, calling its purpose "something of a mystery" and stating that "most aggregators ignore it." 
+		<textInput>
+			<description>Your aggregator supports the textInput element. What software are you using?</description>
+			<link>http://www.cadenhead.org/textinput.php</link>
+			<name>query</name>
+			<title>TextInput Inquiry</title>
+		</textInput> }}
+		{{#if ttl}}
+		<ttl>{{ttl}}</ttl>{{!optional, singleton}}
+		{{/if}}
+		{{#webMaster}}
+		<webMaster>{{webMaster}}</webMaster>{{!optional, singleton}}
+		{{/webMaster}}
+{{!}}
+{{!optional, zero or more, order can not matter, item elements should be the last part of <channel> }}
+{{#pagetype.blogpost.pages}}
+{{log this}}
+		<item>
+			{{!<trackback:ping>http://dallas.example.com/trackback/tb.php?id=1991/05/02/nolan.htm</trackback:ping>}}
+			<title>{{this.data.title}}</title>
+			<description><![CDATA[{{this.data.description}}]]></description>
+			<link>{{../url.homepage}}{{this.url_stripped}}</link>
+			<guid>{{../url.homepage}}{{this.url_stripped}}</guid>
+			{{#this.data.categories}}
+			<category>{{this}}</category>
+			{{/this.data.categories}}
+			{{! <comments>http://dallas.example.com/feedback/1983/06/joebob.htm</comments> }}
+			{{! <enclosure length="24986239" type="audio/mpeg" url="http://dallas.example.com/joebob_050689.mp3" /> }}
+			{{! TODO: Add pubdate support for pages }}
+			{{! <pubDate>Fri, 05 Oct 2007 09:00:00 CST</pubDate> }}
+			{{#if this.author}}
+			<dc:creator>{{this.author}}</dc:creator>{{!optional, singleton}}
+			{{/if}}
+		</item>
+{{/pagetype.blogpost.pages}}
+{{! 
+		<item>
+			<trackback:ping>http://dallas.example.com/trackback/tb.php?id=1991/05/02/nolan.htm</trackback:ping>
+			<title>Seventh Heaven! Ryan Hurls Another No Hitter</title>
+			<link>http://dallas.example.com/1991/05/02/nolan.htm</link>
+			<description>Texas Rangers pitcher Nolan Ryan hurled the seventh no-hitter of his legendary career on Arlington Appreciation Night, defeating the Toronto Blue Jays 3-0. The 44-year-old struck out 16 batters before a crowd of 33,439.</description>
+			<guid>http://dallas.example.com/1991/05/02/nolan.htm</guid>
+		</item>
+		<item>
+			<trackback:ping>http://dallas.example.com/trackback/tb.php?id=1983/06/joebob.htm</trackback:ping>
+			<author>jbb@dallas.example.com (Joe Bob Briggs)</author>
+			<category>rec.arts.movies.reviews</category>
+			<comments>http://dallas.example.com/feedback/1983/06/joebob.htm</comments>
+			<description>I'm headed for France. I wasn't gonna go this year, but then last week "Valley Girl" came out and I said to myself, Joe Bob, you gotta get out of the country for a while.</description>
+			<enclosure length="24986239" type="audio/mpeg" url="http://dallas.example.com/joebob_050689.mp3" />
+			<guid>http://dallas.example.com/1983/05/06/joebob.htm</guid>
+			<link>http://dallas.example.com/1983/05/06/joebob.htm</link>
+			<pubDate>Fri, 06 May 1983 09:00:00 CST</pubDate>
+			<source url="http://la.example.com/rss.xml">Los Angeles Herald-Examiner</source>
+			<title>Joe Bob Goes to the Drive-In</title>
+		</item>
+		<item>
+			<trackback:ping>http://dallas.example.com/trackback/tb.php?id=1983/06/joebob2.htm</trackback:ping>
+			<trackback:about>http://www.imdb.com/title/tt0086525/</trackback:about>
+			<description>I'm headed for France. I wasn't gonna go this year, but then last week &lt;a href="http://www.imdb.com/title/tt0086525/"&gt;Valley Girl&lt;/a&gt; came out and I said to myself, Joe Bob, you gotta get out of the country for a while.</description>
+			<guid isPermaLink="false">tag:dallas.example.com,4131:news</guid>
+		</item>
+		<item>
+			<description><![CDATA[I'm headed for France. I wasn't gonna go this year, but then last week <a href="http://www.imdb.com/title/tt0086525/">Valley Girl</a> came out and I said to myself, Joe Bob, you gotta get out of the country for a while.]]></description>
+			<guid isPermaLink="false">1983-05-06+lifestyle+joebob+2</guid>
+		</item>
+}}
+	</channel>
+</rss>

@@ -15,6 +15,7 @@ module.exports = function(grunt) {
 
 	// LoDash library for Array handling
 	var _ = grunt.util._;
+	var moment = require('moment');
 
 	// Load all grunt tasks
 	//require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -61,10 +62,13 @@ module.exports = function(grunt) {
 				collections:['pagetype'],
 
 				//Custom options
-				fs: require('fs'),
+				//fs: require('fs'),
+				about: {
+					version: '0.4.0',
+					buildtime: moment().format("ddd, DD MMM YYYY HH:mm:ss ZZ")
+				},
 				pkg: grunt.file.readJSON('package.json'),
 				bundles:'<%= uglify %>',
-				bundles_open:false,
 				urlroot:'build/index.html',
 				livereloadport:'<%= livereload.port %>',
 				dev:true,

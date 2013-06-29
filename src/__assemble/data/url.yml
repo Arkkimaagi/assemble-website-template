@@ -1,3 +1,4 @@
 homepage: <%= pkg.homepage %>
 sitemap: <%= url.homepage %>sitemap.xml
 ico: <%= url.homepage %><%= path.ico %>
+rss: <%= url.homepage %>/rss.xml

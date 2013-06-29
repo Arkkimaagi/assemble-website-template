@@ -1,2 +1,42 @@
 
-TODO:Create RSS feed
+<rss version="2.0"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule">
+	<channel>
+		<atom:link href="http://mikko.tapionlinna.fi//rss.xml" rel="self" type="application/rss+xml" />
+		<creativeCommons:license>http://creativecommons.org/licenses/by-nd/3.0/</creativeCommons:license>
+		<title>Mikko Tapionlinna</title>
+		<description>My thoughts and notes about things. ;)</description>
+		<link>http://mikko.tapionlinna.fi/</link>
+		<copyright>Copyright Mikko Tapionlinna</copyright>
+		<docs>http://www.rssboard.org/rss-specification</docs>
+		<generator>Assemble.io 0.4.0</generator>
+		<image>
+			<link>http://mikko.tapionlinna.fi/</link>
+			<title>Mikko Tapionlinna</title>
+			<url>http://mikko.tapionlinna.fi/_style/ico/apple-touch-icon-114x114-precomposed.png</url>
+			<description>My thoughts and notes about things. ;)</description>
+			<height>114</height>
+			<width>114</width>
+		</image>
+		<language>en</language>
+		<lastBuildDate>Sat, 29 Jun 2013 22:39:26 +0300</lastBuildDate>
+		<item>
+			<title>First blog post</title>
+			<description><![CDATA[All good blog templates should have a nice example blog post in them. This helps understanding how the system works and what to expect. Further it helps testing the site layout and generation features.]]></description>
+			<link>http://mikko.tapionlinna.fi/blog/first-blog-post/</link>
+			<guid>http://mikko.tapionlinna.fi/blog/first-blog-post/</guid>
+			<category>Examples</category>
+			<category>Layout tests</category>
+		</item>
+		<item>
+			<title>Test blogpost contents</title>
+			<description><![CDATA[A sample of the different site features has been collected here for quick test and review. Feel free to take a looksie and get inspired!]]></description>
+			<link>http://mikko.tapionlinna.fi/blog/test-blogpost-contents/</link>
+			<guid>http://mikko.tapionlinna.fi/blog/test-blogpost-contents/</guid>
+			<category>Examples</category>
+			<category>Layout tests</category>
+		</item>
+	</channel>
+</rss>
