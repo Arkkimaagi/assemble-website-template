@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>http://mikko.tapionlinna.fi/_tests/components.html</loc>
-    <lastmod>2013-06-26T23:15:58.+0003</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2013-06-29T23:39:26.+0003</lastmod>
+    <changefreq>hourly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
