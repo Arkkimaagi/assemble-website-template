@@ -29,7 +29,7 @@ image:
 #Optional
 language: <%= site.language %>
 #Optional
-lastBuildDate: <%= about.buildtime %>
+lastBuildDate: <%= new Date() %>
 #Optional
 #managingEditor: john.smith@email.com
 #Optional
@@ -108,7 +108,7 @@ lastBuildDate: <%= about.buildtime %>
 		</image>
 		{{/image}}
 		<language>{{language}}</language>{{!optional, singleton}}
-		<lastBuildDate>{{lastBuildDate}}</lastBuildDate>{{!optional, singleton}}
+		<lastBuildDate>{{formatDate lastBuildDate "%a, %d %b %Y %H:%M:%S %z"}}</lastBuildDate>{{!optional, singleton}}
 		{{#managingEditor}}
 		<managingEditor>{{managingEditor}}</managingEditor>{{!optional, singleton}}
 		{{/managingEditor}}
@@ -148,7 +148,6 @@ lastBuildDate: <%= about.buildtime %>
 {{!}}
 {{!optional, zero or more, order can not matter, item elements should be the last part of <channel> }}
 {{#pagetype.blogpost.pages}}
-{{log this}}
 		<item>
 			{{!<trackback:ping>http://dallas.example.com/trackback/tb.php?id=1991/05/02/nolan.htm</trackback:ping>}}
 			<title>{{this.data.title}}</title>
