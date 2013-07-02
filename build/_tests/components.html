@@ -1,4 +1,201 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Hello World!</title>
+		<meta name="description" content="My thoughts and notes about things. ;)">
+		<meta name="author" content="Mikko Tapionlinna">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+		<link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap.xml">
 
+		<!--  - - Metadata area - -  -->
+		<link rel="search" title="" type="application/opensearchdescription+xml" href="">
+		<!-- Fav and touch icons -->
+		<link rel="shortcut icon" href="../favicon.ico">
+		<!-- ios and android favicon and title for linking to homescreen -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../_style/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../_style/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../_style/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../_style/ico/apple-touch-icon-57-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="../_style/ico/apple-touch-icon.png">
+		<meta name="apple-mobile-web-app-title" content="Mikko Tapionlinna">
+		<!-- Twitter meta tags, for when user links this page in Twitter -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:creator" content="@tapionlinna">
+		<meta name="twitter:title" content="Mikko Tapionlinna">
+		<meta name="twitter:description" content="My thoughts and notes about things. ;)">
+		<meta name="twitter:image" content="http://mikko.tapionlinna.fi/_style/ico/twitter.png">
+
+		<!-- facebook meta tags, for when user links this page to fb -->
+		<meta property="og:type" content="website"/>
+		<meta property="og:site_name" content="Mikko Tapionlinna"/>
+		<meta property="og:description" content="My thoughts and notes about things. ;)">
+		<meta property="og:url" content="http://mikko.tapionlinna.fi/build/_tests/components.html"/>
+		<meta property="og:title" content="Hello World!"/>
+		<meta property="og:image" content="http://mikko.tapionlinna.fi/_style/ico/facebook.png"/>
+		<link rel="image_src" href="http://mikko.tapionlinna.fi/_style/ico/facebook.png" />
+
+		<!-- Internet Explorer meta tags for win8 tiles and such -->
+		<meta name="msapplication-navbutton-color" content="#ffffff">
+		<meta name="application-name" content="Mikko Tapionlinna">
+		<meta name="msapplication-tooltip" content="My thoughts and notes about things. ;)">
+		<meta name="msapplication-TileColor" content="#ffffff"/> 
+		<meta name="msapplication-TileImage" content="http://mikko.tapionlinna.fi/_style/ico/win8tile.png"/>
+
+		<!--  - - CSS area - -  -->
+		<!-- Global main.css lives here.. -->
+		<link href="../_style/css/main.css" rel="stylesheet">
+		<!-- This is the page specific CSS area -->
+
+		<!--  - - JS area - -  -->
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+			<script src="_script/lib/html5shim/html5.js"></script>
+		<![endif]-->
+
+
+		<!-- These javascript files change how the page looks or absolutely must be here to work at all. -->
+		<!-- Page specific header js that must be here -->
+	</head>
+	<body>
+
+		<div class="navbar navbar-fixed-top navbar-inverse hidden-print">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+					</a>
+					
+					<a class="brand brand-img" href="../">Mikko Tapionlinna</a>
+					
+					<div class="nav-collapse collapse">
+
+						<ul class="nav ">
+							<li class=""><a href="../blog/">Blog</a></li>
+							<li class=""><a href="../about/">About</a></li>
+						</ul>
+
+						<ul class="nav pull-right">
+							<li class=""><a href="../search/">Search</a></li>
+						</ul>
+
+					</div>
+				
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+						
+			<h1>Hello World!</h1>
+			<p class="lead"></p>
+In the frontmatter, these are not needed, but I use them as an example:<br>
+```
+<pre><code>---
+sampledate: <%=new Date("Sun Jun 30 2011 01:53:23 GMT+0300 (EEST)")%>
+sampletextdate: 'Sun, 30 Jun 2012 11:19:15 +0300'
+inputformats: ["ddd, DD MMM YYYY HH:mm:ss ZZ", "MMMM YYYY"]
+daysadd: {days: 5}
+fiveyearsago: {years: 5}
+duration: {hours: 2, minutes: 33}
+--- </code></pre>
+<br>```<br><br>
+
+Unix timestamp of now<br>
+```<br><code>{{moment}}</code><br>```<br>
+```<br>1372790169448<br>```<br><br>
+
+Current time with formatting <br>
+```<br><code>{{moment format=&quot;HH:mm:ss&quot;}}</code><br>```<br>
+```<br>21:36:09<br>```<br><br>
+
+Specific time with formatting<br>
+```<br><code>{{moment sampledate format=&quot;HH:mm:ss&quot;}}</code><br>```<br>
+```<br>01:53:23<br>```<br><br>
+
+Specific unix timestamp with formatting<br>
+```<br><code>{{moment unixtimestamp format=&quot;HH:mm:ss&quot;}}</code><br>```<br>
+```<br>19:17:56<br>```<br><br>
+
+Specific datetime with formatting<br>
+```<br><code>{{moment sampledate format=&quot;dddd, DD MMMM YYYY HH:mm:ss ZZ&quot;}}</code><br>```<br>
+```<br>Sunday, 30 June 2013 01:53:23 +0300<br>```<br><br>
+
+Language support<br>
+```<br><code>{{moment sampledate lang=&quot;fi&quot; format=&quot;dddd, DD MMMM YYYY HH:mm:ss ZZ&quot;}}</code><br>```<br>
+```<br>sunnuntai, 30 kesäkuu 2013 01:53:23 +0300<br>```<br><br>
+
+Is the added date valid?<br>
+```<br><code>{{moment sampledate isValid=null}}</code><br>```<br>
+```<br>true<br>```<br><br>
+
+Input as a string, with defined format<br>
+```<br><code>{{moment [sampletextdate,&quot;ddd, DD MMM YYYY HH:mm:ss ZZ&quot;] format=&quot;MMMM YYYY&quot;}}</code><br>```<br>
+```<br>July 2013<br>```<br><br>
+
+Multiple formats, moment.js tries to figure out what's the correct one<br>
+```<br><code>{{moment [sampletextdate,formats] format=&quot;MMMM YYYY&quot;}}</code><br>```<br>
+```<br>July 2013<br>```<br><br>
+
+Specific datetime with formatting, converted to utc<br>
+```<br><code>{{moment sampledate utc=null format=&quot;dddd, DD MMMM YYYY HH:mm:ss ZZ&quot;}}</code><br>```<br>
+```<br>Saturday, 29 June 2013 22:53:23 +0000<br>```<br><br>
+
+Getters and setters, example: get week of year, depends on lang (see (moment.js)[http://momentjs.com/docs/#/get-set/] documentation for more details)<br>
+```<br>The week number in Finland is <code>{{moment sampledate lang=&quot;fi&quot; week=null}}</code><br>```<br>
+```<br>The week number in Finland is 26<br>```<br><br>
+
+Manipulate, example: add days, (see (moment.js)[http://momentjs.com/docs/#/manipulating/] documentation for more details)<br>
+```<br><code>{{moment sampledate format=&quot;dddd&quot;}}-{{moment sampledate add=daysadd format=&quot;dddd&quot;}}</code><br>```<br>
+```<br>Sunday-Friday<br>```<br><br>
+
+Manipulate, example: subtract years, (see (moment.js)[http://momentjs.com/docs/#/manipulating/] documentation for more details)<br>
+```<br><code>{{moment sampledate subtract=fiveyearsago format=&quot;YYYY&quot;}}-{{moment sampledate format=&quot;YYYY&quot;}}</code><br>```<br>
+```<br>2008-2013<br>```<br><br>
+
+Manipulate, example: startOf month, (see (moment.js)[http://momentjs.com/docs/#/manipulating/] documentation for more details)<br>
+```<br><code>{{moment sampledate startOf=&quot;month&quot; format=&quot;dddd, DD MMMM YYYY HH:mm:ss ZZ&quot;}}</code><br>```<br>
+```<br>Saturday, 01 June 2013 00:00:00 +0300<br>```<br><br>
+
+Manipulate, example: endOf week, (see (moment.js)[http://momentjs.com/docs/#/manipulating/] documentation for more details)<br>
+```<br><code>{{moment sampledate endOf=&quot;week&quot; format=&quot;dddd, DD MMMM YYYY HH:mm:ss ZZ&quot;}}</code><br>```<br>
+```<br>Saturday, 06 July 2013 23:59:59 +0300<br>```<br><br>
+
+Time from now<br>
+```<br><code>After this page is rendered, the week will end {{moment endOf=&quot;week&quot; fromNow=null}}</code><br>```<br>
+```<br>After this page is rendered, the week will end in 4 days<br>```<br><br>
+
+Time from X<br>
+```<br>This helper was coded <code>{{moment from=sampledate}}</code><br>```<br>
+```<br>This helper was coded in 3 days<br>```<br><br>
+
+Calendar time<br>
+```<br>The coding started <code>{{moment sampledate calendar=null}}</code><br>```<br>
+```<br>The coding started last Sunday at 1:53 AM<br>```<br><br>
+
+Diff<br>
+```<br>The difference between those two moments is <code>{{moment diff=sampledate}}</code><br>```<br>
+```<br>The difference between those two moments is 243766455<br>```<br><br>
+
+Days in Month<br>
+```<br>This month has <code>{{moment daysInMonth=null}}</code> days<br>```<br>
+```<br>This month has 31 days<br>```<br><br>
+
+Days in Month<br>
+```<br>This month has <code>{{moment daysInMonth=null}}</code> days<br>```<br>
+```<br>This month has 31 days<br>```<br><br>
+
+Duration, with humanization<br>
+```<br>The event will last <code>{{duration duration humanize=null}}</code><br>```<br>
+```<br>The event will last 3 hours<br>```<br><br>
+
+The moment.js has plenty of features and these examples are just the tip of the iceberg of what moment.js can do.
+Just remember, in ```1372790169456``` means ```moment().method()``` and ```1372790169456``` means ```moment(somedate).method("something")```. Also, the handlebars syntax does not let you pass some values (like arrays and objects) directly from the tag, so you may need to use the yaml frontmatter to run those.
 
 						<ul class="nav pull-right">
 							<li class=""><a href="components.html">Component tests <span class="badge test">3</span></a></li>
@@ -7,6 +204,21 @@
 							<li class=""><a href="..">test3</a></li>
 						</ul>
 
-<p>How is it going?</p>
 
 
+
+		</div>
+
+		<!-- All non-visual javascripts should be here to keep the pageload as fast as possible -->
+		<script src="../_script/_bundles/global.min.js"></script>
+
+
+
+<script>
+var _gaq=[['_setAccount','UA-2873159-1'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src='//www.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+	</body>
+</html>

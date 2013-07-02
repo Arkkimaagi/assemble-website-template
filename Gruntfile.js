@@ -144,8 +144,9 @@ module.exports = function(grunt) {
 					'src/_script/lib/bootstrap_v2.3.2/bootstrap-popover.js',
 					'src/_script/lib/bootstrap_v2.3.2/bootstrap-button.js',
 					'src/_script/lib/bootstrap_v2.3.2/bootstrap-collapse.js',
-					'src/_script/lib/bootstrap_v2.3.2/bootstrap-carousel.js',
-					'src/_script/lib/bootstrap_v2.3.2/bootstrap-typeahead.js'
+					//'src/_script/lib/bootstrap_v2.3.2/bootstrap-carousel.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-typeahead.js',
+					'src/_script/lib/bootstrap_v2.3.2/bootstrap-affix.js'
 				],
 				dest: 'build/_script/_bundles/global.js'
 			}
@@ -341,11 +342,11 @@ module.exports = function(grunt) {
 				spawn: true
 			},
 			
-			jshint_script: {
-				files: '<%= jshint._watch.script %>',
-				tasks: ['set_live','jshint:script'],
-				spawn: true
-			},
+			//BLAAjshint_script: {
+			//	files: '<%= jshint._watch.script %>',
+			//	tasks: ['set_live','jshint:script'],
+			//	spawn: true
+			//},
 			
 			jshint_hbshelpers: {
 				files: '<%= jshint._watch.hbshelpers %>',
@@ -375,13 +376,13 @@ module.exports = function(grunt) {
 			
 			copy_script:{
 				files: '<%= copy._watch.script %>',
-				tasks: ['set_live','copy:script'],
+				tasks: ['set_live','jshint:script','copy:script'],
 				spawn: true
 			},
 			
 			copy_script_site:{
 				files: '<%= copy._watch.script_site %>',
-				tasks: ['set_live','copy:script_site'],
+				tasks: ['set_live','jshint:script','copy:script_site'],
 				spawn: true
 			},
 			

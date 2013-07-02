@@ -2,23 +2,30 @@
 title: Sitemap
 description: Navigation and site structure
 ---
-{{h2 "Navigation"}}
-<ul>
-{{#nav.site.items}}
-{{>sitemap-item}}
-{{/nav.site.items}}
-</ul>
-<ul>
-{{#nav.site-right.items}}
-{{>sitemap-item}}
-{{/nav.site-right.items}}
-</ul>
 
-{{h2 "Site structure"}}
-<ul>
-{{#withSort pages "url_stripped"}}
-{{#match this.url "\.html$" true}}
-	<li>{{this.url_stripped}} - <a href="{{relative ../../this.page.url this.url}}">{{this.data.title}}</a></li>
-{{/match}}
-{{/withSort}}
-</ul>
+<div class="row">
+	<div class="span6">
+		{{h2 "Navigation"}}
+		<ul>
+		{{#nav.site.items}}
+		{{>sitemap-item}}
+		{{/nav.site.items}}
+		</ul>
+		<ul>
+		{{#nav.site-right.items}}
+		{{>sitemap-item}}
+		{{/nav.site-right.items}}
+		</ul>
+	</div>
+	
+	<div class="span6">
+		{{h2 "Site structure"}}
+		<ul>
+		{{#withSort pages "url_stripped"}}
+		{{#match this.url "\.html$" true}}
+			<li>{{this.url_stripped}} - <a href="{{relative ../../this.page.url this.url}}">{{this.data.title}}</a></li>
+		{{/match}}
+		{{/withSort}}
+		</ul>
+	</div>
+</div>

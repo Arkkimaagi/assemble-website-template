@@ -42,3 +42,5 @@ author: <%= pkg.author %>
 
 #At what navigation level should breadcrumbs be visible? 0 = root, 1 = first...
 breadcrumbs_start_at: 2
+
+automatic_anchors_in_headings: false
