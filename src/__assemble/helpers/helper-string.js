@@ -2,9 +2,14 @@
 
 module.exports.register = function(Handlebars, options) {
 	var helpers = {};
+	
+	function debug(what,where){
+		//console.log(what,where);
+	}
 
 	
 	helpers.replace = function(original_string,look_for,replace_with,flags) {
+		debug("Helper:",'replace');
 		if(flags){
 			if(typeof flags === "string"){
 				look_for = new RegExp(look_for, flags);
@@ -18,6 +23,7 @@ module.exports.register = function(Handlebars, options) {
 
 	
 	helpers.match = function(original_string,look_for,flags,options) {
+		debug("Helper:",'match');
 		if(flags){
 			if(typeof flags === "string"){
 				look_for = new RegExp(look_for, flags);

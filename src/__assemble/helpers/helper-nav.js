@@ -1,6 +1,10 @@
 /*jshint node:true */
 module.exports.register = function(Handlebars, options) {
 	var helpers = {};
+	
+	function debug(what,where){
+		//console.log(what,where);
+	}
 
 	/**
 	 * Figure out if current navigation item is active or not
@@ -8,6 +12,7 @@ module.exports.register = function(Handlebars, options) {
 	 * @return {String}              Either "" or "active " String to be used inside class-attribute
 	 */
 	helpers.nav_is_active = function(page_context) {
+		debug("Helper:",'nav_is_active');
 		try{
 			
 			var item_href = this.href.replace(/index.html$/,'');
@@ -43,6 +48,7 @@ module.exports.register = function(Handlebars, options) {
 	 * @return {String}              Relative path between current page and target location
 	 */
 	helpers.nav_relatives = function(page_context) {
+		debug("Helper:",'nav_relatives');
 		
 		var from = page_context.page.dest.replace(/^build\//,'');
 		var to = this.href.replace(/^build\//,'');
@@ -64,6 +70,7 @@ module.exports.register = function(Handlebars, options) {
 	 * @return {String}      Relative path to destination without index.html in the end.
 	 */
 	helpers.relative_strip = function(from, to) {
+		debug("Helper:",'relative_strip');
 		return Handlebars.helpers.relative(from,to.replace(/\/index.html$/i,'/'));
 	};
 
@@ -74,6 +81,7 @@ module.exports.register = function(Handlebars, options) {
 	 * @return {Object}         Renders block if depth level is above limit
 	 */
 	helpers.if_depth_gt = function(level,options) {
+		debug("Helper:",'if_depth_gt');
 		if(this.dirname.split('/').length>level){
 			return options.fn(this);
 		} else {
@@ -88,6 +96,7 @@ module.exports.register = function(Handlebars, options) {
 	 * @return {String}         Rendered breadcrumbs for current level
 	 */
 	helpers.breadcrumbs = function(options) {
+		debug("Helper:",'breadcrumbs');
 		var dirs = {};
 		for(var i in this.pages){
 			var iPage = this.pages[i];

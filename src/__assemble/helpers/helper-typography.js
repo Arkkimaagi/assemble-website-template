@@ -2,6 +2,10 @@
 
 module.exports.register = function(Handlebars, options) {
 	var helpers = {};
+	
+	function debug(what,where){
+		//console.log(what,where);
+	}
 
 	function heading(level, title, className, name, that){
 		if(!title){
@@ -30,26 +34,32 @@ module.exports.register = function(Handlebars, options) {
 	}
 
 	helpers.h1 = function(title, className, name){
+		debug("Helper:",'h1');
 		return heading(1,title,className,name,this);
 	};
 
 	helpers.h2 = function(title, className, name){
+		debug("Helper:",'h2');
 		return heading(2,title,className,name,this);
 	};
 
 	helpers.h3 = function(title, className, name){
+		debug("Helper:",'h3');
 		return heading(3,title,className,name,this);
 	};
 
 	helpers.h4 = function(title, className, name){
+		debug("Helper:",'h4');
 		return heading(4,title,className,name,this);
 	};
 
 	helpers.h5 = function(title, className, name){
+		debug("Helper:",'h5');
 		return heading(5,title,className,name,this);
 	};
 
 	helpers.h6 = function(title, className, name){
+		debug("Helper:",'h6');
 		return heading(6,title,className,name,this);
 	};
 

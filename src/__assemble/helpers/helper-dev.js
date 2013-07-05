@@ -3,6 +3,10 @@
 module.exports.register = function(Handlebars, options) {
 	var helpers = {};
 
+	function debug(what,where){
+		//console.log(what,where);
+	}
+
 	/**
 	 * Renders code comments if the site.dev.verbose is true
 	 * @param  {String} text   Code comments
@@ -10,7 +14,7 @@ module.exports.register = function(Handlebars, options) {
 	 * @return {String}        Either nothing, or html code comments
 	 */
 	helpers.verbose = function(text,indent) {
-		//console.log("verbose");
+		debug("Helper:",'verbose');
 		var tabs = "";
 		if(typeof indent === "number"){
 			tabs = new Array(indent+1).join("\t");

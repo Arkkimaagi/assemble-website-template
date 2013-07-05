@@ -1,6 +1,10 @@
 /*jshint node:true */
 module.exports.register = function(Handlebars, options) {
 	var helpers = {};
+	
+	function debug(what,where){
+		//console.log(what,where);
+	}
 
 	/**
 	 * Generates a smart lastmod timestamp based on elapsed time
@@ -8,6 +12,7 @@ module.exports.register = function(Handlebars, options) {
 	 * @return {String}         Timestamp when page was last modified, more vague if longer time has passed
 	 */
 	helpers.smartLastMod = function(context) {
+		debug("Helper:",'smartLastMod');
 		var formatD = Handlebars.helpers.formatDate;
 		var now = new Date();
 		
@@ -31,6 +36,7 @@ module.exports.register = function(Handlebars, options) {
 	 * @return {String}         changefreq string that updates slower when more time has passed
 	 */
 	helpers.smartChangeFreq = function(context) {
+		debug("Helper:",'smartChangeFreq');
 		var formatD = Handlebars.helpers.formatDate;
 		var now = new Date();
 		

@@ -62,7 +62,7 @@
 		<!-- These javascript files change how the page looks or absolutely must be here to work at all. -->
 		<!-- Page specific header js that must be here -->
 	</head>
-	<body>
+	<body class="rhythm">
 
 		<div class="navbar navbar-fixed-top navbar-inverse hidden-print">
 			<div class="navbar-inner">
@@ -108,11 +108,11 @@ duration: {hours: 2, minutes: 33}
 
 Unix timestamp of now<br>
 ```<br><code>{{moment}}</code><br>```<br>
-```<br>1372790169448<br>```<br><br>
+```<br>1373025076100<br>```<br><br>
 
 Current time with formatting <br>
 ```<br><code>{{moment format=&quot;HH:mm:ss&quot;}}</code><br>```<br>
-```<br>21:36:09<br>```<br><br>
+```<br>14:51:16<br>```<br><br>
 
 Specific time with formatting<br>
 ```<br><code>{{moment sampledate format=&quot;HH:mm:ss&quot;}}</code><br>```<br>
@@ -168,11 +168,11 @@ Manipulate, example: endOf week, (see (moment.js)[http://momentjs.com/docs/#/man
 
 Time from now<br>
 ```<br><code>After this page is rendered, the week will end {{moment endOf=&quot;week&quot; fromNow=null}}</code><br>```<br>
-```<br>After this page is rendered, the week will end in 4 days<br>```<br><br>
+```<br>After this page is rendered, the week will end in a day<br>```<br><br>
 
 Time from X<br>
 ```<br>This helper was coded <code>{{moment from=sampledate}}</code><br>```<br>
-```<br>This helper was coded in 3 days<br>```<br><br>
+```<br>This helper was coded in 6 days<br>```<br><br>
 
 Calendar time<br>
 ```<br>The coding started <code>{{moment sampledate calendar=null}}</code><br>```<br>
@@ -180,7 +180,7 @@ Calendar time<br>
 
 Diff<br>
 ```<br>The difference between those two moments is <code>{{moment diff=sampledate}}</code><br>```<br>
-```<br>The difference between those two moments is 243766455<br>```<br><br>
+```<br>The difference between those two moments is 478673106<br>```<br><br>
 
 Days in Month<br>
 ```<br>This month has <code>{{moment daysInMonth=null}}</code> days<br>```<br>
@@ -195,7 +195,7 @@ Duration, with humanization<br>
 ```<br>The event will last 3 hours<br>```<br><br>
 
 The moment.js has plenty of features and these examples are just the tip of the iceberg of what moment.js can do.
-Just remember, in ```1372790169456``` means ```moment().method()``` and ```1372790169456``` means ```moment(somedate).method("something")```. Also, the handlebars syntax does not let you pass some values (like arrays and objects) directly from the tag, so you may need to use the yaml frontmatter to run those.
+Just remember, in ```{{moment method=null}}``` means ```moment().method()``` and ```{{moment somedate method="something"}}``` means ```moment(somedate).method("something")```. Also, the handlebars syntax does not let you pass some values (like arrays and objects) directly from the tag, so you may need to use the yaml frontmatter to run those.
 
 						<ul class="nav pull-right">
 							<li class=""><a href="components.html">Component tests <span class="badge test">3</span></a></li>

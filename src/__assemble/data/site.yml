@@ -9,6 +9,7 @@ google_analytics: UA-2873159-1 #This is the google analytics code, comment it ou
 dev:
   verbose: true
   helium: false
+  html-inspect: true
 
 meta:
   description: '<%= site.description %>'

@@ -1,6 +1,10 @@
 /*jshint node:true */
 module.exports.register = function(Handlebars, options) {
 	var helpers = {};
+	
+	function debug(what,where){
+		//console.log(what,where);
+	}
 
 
 	/**
@@ -11,6 +15,7 @@ module.exports.register = function(Handlebars, options) {
 	 * @return {String}         Formatted HTML with rendered and escaped code
 	 */
 	helpers.styleguide = function(title,code,options) {
+		debug("Helper:",'styleguide');
 		code = code.replace(/^\n*/g,"").replace(/\n*$/g,"");
 		var result = "";
 		var compiled = Handlebars.compile(code)(this,options);

@@ -125,7 +125,7 @@ Duration, with humanization<br>
 ```<br>The event will last {{duration duration humanize=null}}<br>```<br><br>
 
 The moment.js has plenty of features and these examples are just the tip of the iceberg of what moment.js can do.
-Just remember, in ```{{moment method=null}}``` means ```moment().method()``` and ```{{moment somedate method="something"}}``` means ```moment(somedate).method("something")```. Also, the handlebars syntax does not let you pass some values (like arrays and objects) directly from the tag, so you may need to use the yaml frontmatter to run those.
+Just remember, in ```\{{moment method=null}}``` means ```moment().method()``` and ```\{{moment somedate method="something"}}``` means ```moment(somedate).method("something")```. Also, the handlebars syntax does not let you pass some values (like arrays and objects) directly from the tag, so you may need to use the yaml frontmatter to run those.
 
 {{#mynav}}
 {{#$ ..}}{{>nav}}{{/$}}

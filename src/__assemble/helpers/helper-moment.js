@@ -1,11 +1,16 @@
 /*jshint node:true */
 module.exports.register = function(Handlebars, options) {
 	var helpers = {};
+	
+	function debug(what,where){
+		//console.log(what,where);
+	}
 
 	var moment = require('moment');
 	var _ = require('lodash');
 	
 	helpers.moment = function(context, block){
+		debug("Helper:",'moment');
 		if(context && context.hash){
 			block = _.cloneDeep(context);
 			context = undefined;
@@ -30,6 +35,7 @@ module.exports.register = function(Handlebars, options) {
 	};
 	
 	helpers.duration = function(context, block){
+		debug("Helper:",'duration');
 		if(context && context.hash){
 			block = _.cloneDeep(context);
 			context = 0;

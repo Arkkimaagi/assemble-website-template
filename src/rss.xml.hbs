@@ -4,6 +4,7 @@ layout: false
 # These tree are required
 title: <%= site.title %>
 description: <%= site.description %>
+rss_page_link: <%= url.homepage %>
 link: <%= url.homepage %>
 
 rss_href: <%= url.rss %>
@@ -84,7 +85,7 @@ lastBuildDate: <%= new Date() %>
 {{!}}
 		<title>{{title}}</title>{{!required}}
 		<description>{{description}}</description>{{!required}}
-		<link>{{link}}</link>{{!required}}
+		<link>{{rss_page_link}}</link>{{!required}}
 {{!}}
 		{{#rss_categories}}
 		<category{{this.domain}}>{{this.title}}</category>{{!optional, multiple}}

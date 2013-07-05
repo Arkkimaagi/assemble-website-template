@@ -3,12 +3,17 @@
 module.exports.register = function(Handlebars, options) {
 	var helpers = {};
 
+	function debug(what,where){
+		//console.log(what,where);
+	}
+
 	/**
 	 * Inline code
 	 * @param  {String} codesample Code to be escaped and formatted
 	 * @return {String}            Formatted html code with codesample
 	 */
 	helpers.code = function(codesample) {
+		debug("Helper:",'code');
 		var ent = require('ent');
 		return new Handlebars.SafeString("<code>"+ent.encode(codesample)+"</code>");
 	};
@@ -20,6 +25,7 @@ module.exports.register = function(Handlebars, options) {
 	 * @return {String}            Prettified codeblock html code
 	 */
 	helpers.codeblock = function(codesample,lang) {
+		debug("Helper:",'codeblock');
 		//console.log('sss',codesample, codesample.replace);
 		if(codesample && !codesample.replace && codesample.string){
 			codesample = codesample.string;
