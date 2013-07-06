@@ -45,9 +45,9 @@
 }}
 
 		{{verbose "This is the page specific CSS area" 2}}
-		{{#page.custom_css}}
-		<link href="{{root assets}}{{href}}" rel="stylesheet">
-		{{/page.custom_css}}
+		{{#custom_css}}
+		<link href="{{root ../assets}}{{href}}" rel="stylesheet">
+		{{/custom_css}}
 
 
 		{{verbose " - - JS area - - " 2}}
@@ -55,9 +55,7 @@
 		{{! ie support for html5 elements }}
 		{{>html5shim}}
 
-		{{>devtools}}
-
 		{{>headjs}}
 	</head>
-	<body class="rhythm">
+	<body{{!  class="rhythm" }}>
 {{>ie6whine}}

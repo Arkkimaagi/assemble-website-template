@@ -32,12 +32,12 @@
 		<meta name="twitter:image" content="http://mikko.tapionlinna.fi/_style/ico/twitter.png">
 
 		<!-- facebook meta tags, for when user links this page to fb -->
-		<meta property="og:type" content="website"/>
-		<meta property="og:site_name" content="Mikko Tapionlinna"/>
-		<meta property="og:description" content="My thoughts and notes about things. ;)">
-		<meta property="og:url" content="http://mikko.tapionlinna.fi/build/_static/500.html"/>
-		<meta property="og:title" content="500 Oops, there went something wrong!"/>
-		<meta property="og:image" content="http://mikko.tapionlinna.fi/_style/ico/facebook.png"/>
+		<meta name="og:type" content="website"/>
+		<meta name="og:site_name" content="Mikko Tapionlinna"/>
+		<meta name="og:description" content="My thoughts and notes about things. ;)">
+		<meta name="og:url" content="http://mikko.tapionlinna.fi/build/_static/500.html"/>
+		<meta name="og:title" content="500 Oops, there went something wrong!"/>
+		<meta name="og:image" content="http://mikko.tapionlinna.fi/_style/ico/facebook.png"/>
 		<link rel="image_src" href="http://mikko.tapionlinna.fi/_style/ico/facebook.png" />
 
 		<!-- Internet Explorer meta tags for win8 tiles and such -->
@@ -57,12 +57,10 @@
 		<!--[if lt IE 9]>
 			<script src="_script/lib/html5shim/html5.js"></script>
 		<![endif]-->
-
-
 		<!-- These javascript files change how the page looks or absolutely must be here to work at all. -->
 		<!-- Page specific header js that must be here -->
 	</head>
-	<body class="rhythm">
+	<body>
 
 		<div class="navbar navbar-fixed-top navbar-inverse hidden-print">
 			<div class="navbar-inner">
@@ -71,7 +69,7 @@
 						<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 					</a>
 					
-					<a class="brand brand-img" href="../">Mikko Tapionlinna</a>
+					<a class="brand" href="../">Mikko Tapionlinna</a>
 					
 					<div class="nav-collapse collapse">
 
@@ -90,7 +88,7 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container" role="main">
 						
 			<h1>500 Oops, there went something wrong!</h1>
 			<p class="lead">We are really sorry, we made a mistake. Maybe you could try again and report back to us if this keeps happening?</p>
@@ -98,15 +96,19 @@
 		</div>
 
 		<!-- All non-visual javascripts should be here to keep the pageload as fast as possible -->
+
+
+
+
+<!-- DO NOT PUT THIS PART IN PRODUCTION!!!!! -->
+<!-- HTML inspector complains about poor html -->
+<script src="../_script/lib/html-inspector/dist/html-inspector.js"></script>
+<script> HTMLInspector.inspect() </script>
+
+
 		<script src="../_script/_bundles/global.min.js"></script>
 
 
 
-<script>
-var _gaq=[['_setAccount','UA-2873159-1'],['_trackPageview']];
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-g.src='//www.google-analytics.com/ga.js';
-s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
 	</body>
 </html>

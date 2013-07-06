@@ -32,12 +32,12 @@
 		<meta name="twitter:image" content="http://mikko.tapionlinna.fi/_style/ico/twitter.png">
 
 		<!-- facebook meta tags, for when user links this page to fb -->
-		<meta property="og:type" content="website"/>
-		<meta property="og:site_name" content="Mikko Tapionlinna"/>
-		<meta property="og:description" content="My thoughts and notes about things. ;)">
-		<meta property="og:url" content="http://mikko.tapionlinna.fi/build/sitemap/"/>
-		<meta property="og:title" content="Sitemap"/>
-		<meta property="og:image" content="http://mikko.tapionlinna.fi/_style/ico/facebook.png"/>
+		<meta name="og:type" content="website"/>
+		<meta name="og:site_name" content="Mikko Tapionlinna"/>
+		<meta name="og:description" content="My thoughts and notes about things. ;)">
+		<meta name="og:url" content="http://mikko.tapionlinna.fi/build/sitemap/"/>
+		<meta name="og:title" content="Sitemap"/>
+		<meta name="og:image" content="http://mikko.tapionlinna.fi/_style/ico/facebook.png"/>
 		<link rel="image_src" href="http://mikko.tapionlinna.fi/_style/ico/facebook.png" />
 
 		<!-- Internet Explorer meta tags for win8 tiles and such -->
@@ -57,12 +57,10 @@
 		<!--[if lt IE 9]>
 			<script src="_script/lib/html5shim/html5.js"></script>
 		<![endif]-->
-
-
 		<!-- These javascript files change how the page looks or absolutely must be here to work at all. -->
 		<!-- Page specific header js that must be here -->
 	</head>
-	<body class="rhythm">
+	<body>
 
 		<div class="navbar navbar-fixed-top navbar-inverse hidden-print">
 			<div class="navbar-inner">
@@ -71,7 +69,7 @@
 						<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 					</a>
 					
-					<a class="brand brand-img" href="../">Mikko Tapionlinna</a>
+					<a class="brand" href="../">Mikko Tapionlinna</a>
 					
 					<div class="nav-collapse collapse">
 
@@ -90,7 +88,7 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container" role="main">
 						
 			<h1>Sitemap</h1>
 			<p class="lead">Navigation and site structure</p>
@@ -105,37 +103,42 @@
 	
 	<div class="span6"><h2>Site structure</h2>
 		<ul>
-			<li>blog/first-blog-post/ - <a href="../blog/first-blog-post/index.html">First blog post</a></li>
-			<li>_static/401.html - <a href="../_static/401.html">401 Unauthorized</a></li>
-			<li> - <a href="../index.html">&lt;%=site.title%&gt;</a></li>
-			<li>blog/test-blogpost-contents/ - <a href="../blog/test-blogpost-contents/index.html">Test blogpost contents</a></li>
-			<li>_static/500.html - <a href="../_static/500.html">500 Oops, there went something wrong!</a></li>
-			<li>_static/404.html - <a href="../_static/404.html">404 Page not found</a></li>
-			<li>_static/403.html - <a href="../_static/403.html">403 Forbidden</a></li>
-			<li>_tests/empty.html - <a href="../_tests/empty.html"></a></li>
-			<li>_static/guide/ - <a href="../_static/guide/index.html">Styleguide</a></li>
-			<li>_tests/components.html - <a href="../_tests/components.html">Hello World!</a></li>
-			<li>_static/doc/ - <a href="../_static/doc/index.html">Documentation</a></li>
-			<li>_tests/no_footer_js.html - <a href="../_tests/no_footer_js.html"></a></li>
-			<li>about/ - <a href="../about/index.html">About</a></li>
-			<li>blog/ - <a href="../blog/index.html">Blog archive</a></li>
-			<li>search/ - <a href="../search/index.html">Search</a></li>
-			<li>sitemap/ - <a href="index.html">Sitemap</a></li>
+			<li> - <a href="index.html">Mikko Tapionlinna</a></li>
+			<li>_static/401.html - <a href="_static/401.html">401 Unauthorized</a></li>
+			<li>_static/403.html - <a href="_static/403.html">403 Forbidden</a></li>
+			<li>_static/404.html - <a href="_static/404.html">404 Page not found</a></li>
+			<li>_static/500.html - <a href="_static/500.html">500 Oops, there went something wrong!</a></li>
+			<li>_static/doc/ - <a href="_static/doc/index.html">Documentation</a></li>
+			<li>_static/guide/ - <a href="_static/guide/index.html">Styleguide</a></li>
+			<li>_tests/components.html - <a href="_tests/components.html">Hello World!</a></li>
+			<li>_tests/empty.html - <a href="_tests/empty.html"></a></li>
+			<li>_tests/no_footer_js.html - <a href="_tests/no_footer_js.html"></a></li>
+			<li>about/ - <a href="about/index.html">About</a></li>
+			<li>blog/ - <a href="blog/index.html">Blog archive</a></li>
+			<li>blog/first-blog-post/ - <a href="blog/first-blog-post/index.html">First blog post</a></li>
+			<li>blog/test-blogpost-contents/ - <a href="blog/test-blogpost-contents/index.html">Test blogpost contents</a></li>
+			<li>search/ - <a href="search/index.html">Search</a></li>
+			<li>sitemap/ - <a href="sitemap/index.html">Sitemap</a></li>
 		</ul>
 	</div>
 </div>
+
 		</div>
 
 		<!-- All non-visual javascripts should be here to keep the pageload as fast as possible -->
+
+
+
+
+<!-- DO NOT PUT THIS PART IN PRODUCTION!!!!! -->
+<!-- HTML inspector complains about poor html -->
+<script src="../_script/lib/html-inspector/dist/html-inspector.js"></script>
+<script> HTMLInspector.inspect() </script>
+
+
 		<script src="../_script/_bundles/global.min.js"></script>
 
 
 
-<script>
-var _gaq=[['_setAccount','UA-2873159-1'],['_trackPageview']];
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-g.src='//www.google-analytics.com/ga.js';
-s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
 	</body>
 </html>

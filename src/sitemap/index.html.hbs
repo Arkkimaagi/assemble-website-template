@@ -23,7 +23,9 @@ description: Navigation and site structure
 		<ul>
 		{{#withSort pages "url_stripped"}}
 		{{#match this.url "\.html$" true}}
+		{{#isnt data.sitemap_hidden true}}
 			<li>{{this.url_stripped}} - <a href="{{relative ../../this.page.url this.url}}">{{this.data.title}}</a></li>
+		{{/isnt}}
 		{{/match}}
 		{{/withSort}}
 		</ul>

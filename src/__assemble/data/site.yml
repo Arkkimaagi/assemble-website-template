@@ -4,12 +4,12 @@ description: My thoughts and notes about things. ;)
 
 chromeframe: false #If true, site complains on ie6 users to use chrome frame.
 IE10_desktopmode: false #If true, will force IE10 to desktop mode for plugins (flash) support
-google_analytics: UA-2873159-1 #This is the google analytics code, comment it out to disable
+#google_analytics: UA-2873159-1 #This is the google analytics code, comment it out to disable
 
 dev:
   verbose: true
   helium: false
-  html-inspect: true
+  html-inspector: true
 
 meta:
   description: '<%= site.description %>'

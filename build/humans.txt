@@ -24,7 +24,7 @@
     Sublime Text 2
     Photoshop
   Automation:
-    assemble ~0.4.00
+    assemble https://github.com/Arkkimaagi/assemble/tarball/master
     grunt-contrib-clean ~0.4.1
     grunt-contrib-compress ~0.5.2
     grunt-contrib-concat ~0.3.0
@@ -41,7 +41,7 @@
     matchdep ~0.1.2
     moment ~2.0.0
     slug ~0.3.2
-    ent 0.0.5
+    ent ~0.0.5
 
     ___         __   __   _                             _
    /   |  _____/ /__/ /__(_)___ ___  ____ _____ _____ _(_)

@@ -4279,6 +4279,66 @@ input[type="submit"].btn.btn-mini {
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
 }
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.alert,
+.alert h4 {
+  color: #c09853;
+}
+.alert h4 {
+  margin: 0;
+}
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: 20px;
+}
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+}
+.alert-success h4 {
+  color: #468847;
+}
+.alert-danger,
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+}
+.alert-danger h4,
+.alert-error h4 {
+  color: #b94a48;
+}
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #3a87ad;
+}
+.alert-info h4 {
+  color: #3a87ad;
+}
+.alert-block {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.alert-block > p,
+.alert-block > ul {
+  margin-bottom: 0;
+}
+.alert-block p + p {
+  margin-top: 5px;
+}
 .nav {
   margin-left: 0;
   margin-bottom: 20px;
@@ -6321,130 +6381,6 @@ http://raphaelddl.com
   -moz-border-radius: 0 4px 0 4px;
   border-radius: 0 4px 0 4px;
 }
-/*
-// Vertical Rhythm
-// -------------------------------------------------- */
-/* Variables
- * -------------------------------------------
- * Put your custom variables here. If you use bootstrap, use those
- * and add your own for vertical rhythm
- */
-/* VERTICAL RHYTHM
- * -------------------------------------------
- * Add .rhythm to parent elements when you
- * wish to apply vertical rhythm to child elements
- */
-/* Body text & Misc
- * -------------------------------------------
- */
-.rhythm p,
-.rhythm ul,
-.rhythm ol,
-.rhythm blockquote,
-.rhythm address,
-.rhythm pre,
-.rhythm form {
-  margin-bottom: 20px;
-}
-.rhythm p:last-child,
-.rhythm ul:last-child,
-.rhythm ol:last-child,
-.rhythm blockquote:last-child,
-.rhythm address:last-child,
-.rhythm pre:last-child,
-.rhythm form:last-child {
-  margin-bottom: 0;
-}
-/* Headings & paragraphs
- * -------------------------------------------
- * Here we apply special spacing to certain
- * typographical patterns. It is impossible to
- * predict the patterns you require for your
- * project, so this is only a starting point.
- */
-.rhythm h1,
-.rhythm h2,
-.rhythm h3 {
-  margin-bottom: 5px;
-}
-.rhythm h1 + h2 {
-  margin-top: 20px;
-}
-.rhythm h4 {
-  margin-bottom: 3.3333333333333335px;
-}
-.rhythm h1 + p,
-.rhythm p + h4 {
-  margin-top: 30px;
-}
-.rhythm h2 + h3,
-.rhythm h2 + h4 {
-  margin-top: 20px;
-}
-.rhythm h2 + p,
-.rhythm h3 + p {
-  margin-top: 10px;
-}
-.rhythm p + h2 {
-  margin-top: 60px;
-}
-.rhythm h3 + h4 {
-  margin-top: 40px;
-}
-/* Lists
- * -------------------------------------------
- * Special classes for numbered, bulleted,
- * and alpha lists.
- */
-.rhythm h3 + ul.bullet-list,
-.rhythm h3 + ul.numbered-list,
-.rhythm h3 + ul.alpha-list,
-.rhythm h3 + ol.numbered-list {
-  margin-top: 10px;
-}
-.rhythm ul.bullet-list + h3,
-.rhythm ul.numbered-list + h3,
-.rhythm ul.alpha-list + h3 {
-  margin-top: 40px;
-}
-.rhythm h4 + ul.bullet-list,
-.rhythm h4 + ul.numbered-list,
-.rhythm h4 + ul.alpha-list,
-.rhythm h4 + ol.numbered-list {
-  margin-top: 10px;
-}
-.rhythm .bullet-list {
-  list-style-type: disc;
-  padding-left: 1.25em;
-}
-.rhythm .numbered-list {
-  list-style-type: decimal;
-  padding-left: 1.5em;
-}
-.rhythm .alpha-list {
-  list-style-type: lower-alpha;
-  padding-left: 1.5em;
-}
-.rhythm .bullet-list li,
-.rhythm .numbered-list li,
-.rhythm .alpha-list li {
-  margin-bottom: 10px;
-}
-.rhythm .condensed-list li {
-  margin-bottom: 0;
-}
-.rhythm .flush-list li {
-  padding-left: 0;
-}
-/* Blockquotes
- * -------------------------------------------
- */
-.rhythm blockquote {
-  padding: 20px 20px 0;
-}
-html {
-  overflow-y: scroll;
-}
 .anchor {
   opacity: 0;
   margin-left: -1.0499999999999998em;
@@ -6462,4 +6398,10 @@ h5:hover .anchor,
 h6:hover .anchor {
   opacity: 1;
   text-decoration: none;
+}
+html {
+  overflow-y: scroll;
+}
+.no-js {
+  alpha: 1;
 }

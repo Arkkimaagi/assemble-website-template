@@ -5,12 +5,14 @@ layout: false
 {{#pages}}
 {{#contains dest '.html'}}
 {{#doesntcontain dest '/_static/'}}
+{{#isnt data.sitemap_hidden true}}
   <url>
     <loc>{{../../../pkg.homepage}}{{replace ../../dest '(^build/|index.html)' '' 'g'}}</loc>
     <lastmod>{{smartLastMod ..}}</lastmod>
     <changefreq>{{smartChangeFreq ..}}</changefreq>
     <priority>{{default ../data/priority "0.5"}}</priority>
   </url>
+{{/isnt}}
 {{/doesntcontain}}
 {{/contains}}
 {{/pages}}

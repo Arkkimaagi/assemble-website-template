@@ -32,7 +32,7 @@
 // // Components: Buttons & Alerts
 @import "lib/bootstrap_v2.3.2/buttons.less";
 @import "lib/bootstrap_v2.3.2/button-groups.less";
-// @import "lib/bootstrap_v2.3.2/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+@import "lib/bootstrap_v2.3.2/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
 
 // Components: Nav
 @import "lib/bootstrap_v2.3.2/navs.less";
@@ -77,8 +77,8 @@ body {
 @import "lib/bootstrap_v2.3.2/responsive.less";
 @import "lib/prettify/prettify.less";
 @import "lib/styleguide/styleguide.less";
-@import "lib/vertical-rhythm/vertical-rhythm.less";
-
+// @import "lib/vertical-rhythm/vertical-rhythm.less";
+@import "lib/arkkimaagi/anchor-headers.less";
 
 ////////////////////////////////////////////////////////////////////////////
 // Fixes
@@ -88,22 +88,9 @@ html {
 	overflow-y: scroll;
 }
 
-//Github style heading anchors
-.anchor{
-	@size:(0.7em);
-	opacity:0;
-	margin-left:(-@size *1.5);
-	width:@size *1.5;
-	display:inline-block;
-	font-size:@size;
-	position:absolute;
-	color:inherit;
-}
-h1,h2,h3,h4,h5,h6{
-	&:hover .anchor{
-		opacity:1;
-		text-decoration: none;
-	}
+.no-js{
+	//Do something when js is not supported?
+	alpha:1;
 }
 
 ////////////////////////////////////////////////////////////////////////////

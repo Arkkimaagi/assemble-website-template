@@ -1,2 +1,2 @@
-logo: '<%= site.title %>'
+logo: false
 nav_inverse: true
